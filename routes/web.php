@@ -15,20 +15,20 @@ Auth::routes();
 // use Spatie\Permission\Models\Role;
 // use Spatie\Permission\Models\Permission;
 // use App\User;
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'role:admin']], function () {
 	Route::get('/', 'HomeController@index')->name('home');
 
 
 
 	//temp
 
-	// Route::get('/ccrt', function(){
-	// 	$admin = Role::create( ['name' => 'admin']);
-  //   $guest = Role::create( ['name' => 'guest']);
-	//
-	// 	$man = User::find(Auth::user()->id);
-	// 	$man->assignRole('admin');
-	//
-	// });
+	Route::get('/ccrt', function(){
+		//$admin = Role::create( ['name' => 'admin']);
+    //$guest = Role::create( ['name' => 'guest']);
+
+		//$man = User::find(Auth::user()->id);
+		//$man->assignRole('guest');
+
+	});
 
 });
