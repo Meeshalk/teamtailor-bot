@@ -2,6 +2,7 @@
 <html>
 <head>
         @include('layouts.head')
+        @stack('pageCss')
 </head>
 {{-- sidebar-mini sidebar-collapse --}}
 <body class="hold-transition skin-red-light sidebar-mini">

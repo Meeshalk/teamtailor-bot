@@ -33,6 +33,7 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '0d8253363903f0ac7b0978dcde4e28a0' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/helpers.php',
+        '9e4824c5afbdc1482b6025ce3d4dfde8' => __DIR__ . '/..' . '/league/csv/src/functions_include.php',
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
     );
 
@@ -40,6 +41,10 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
+        ),
+        'a' => 
+        array (
+            'anlutro\\cURL\\' => 13,
         ),
         'Z' => 
         array (
@@ -97,6 +102,7 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
             'Psr\\Container\\' => 14,
             'Prophecy\\' => 9,
             'PhpParser\\' => 10,
+            'Pdp\\' => 4,
         ),
         'O' => 
         array (
@@ -114,6 +120,7 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'L' => 
         array (
             'League\\Flysystem\\' => 17,
+            'League\\Csv\\' => 11,
             'Lcobucci\\JWT\\' => 13,
             'Laravel\\Tinker\\' => 15,
         ),
@@ -158,6 +165,7 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         ),
         'C' => 
         array (
+            'Curl\\' => 5,
             'Cron\\' => 5,
         ),
         'B' => 
@@ -176,6 +184,10 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'anlutro\\cURL\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/anlutro/curl/src',
         ),
         'Zend\\Diactoros\\' => 
         array (
@@ -322,6 +334,10 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
+        'Pdp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src',
+        ),
         'Opis\\Closure\\' => 
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
@@ -341,6 +357,10 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
+        ),
+        'League\\Csv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/csv/src',
         ),
         'Lcobucci\\JWT\\' => 
         array (
@@ -423,6 +443,10 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'Curl\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-curl-class/php-curl-class/src/Curl',
+        ),
         'Cron\\' => 
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
@@ -467,6 +491,7 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Domain' => __DIR__ . '/../..' . '/app/Domain.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -474,7 +499,9 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DomainController' => __DIR__ . '/../..' . '/app/Http/Controllers/DomainController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\JobController' => __DIR__ . '/../..' . '/app/Http/Controllers/JobController.php',
         'App\\Http\\Controllers\\SeedController' => __DIR__ . '/../..' . '/app/Http/Controllers/SeedController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -484,6 +511,7 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Job' => __DIR__ . '/../..' . '/app/Job.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -511,6 +539,14 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+        'Curl\\ArrayUtil' => __DIR__ . '/..' . '/php-curl-class/php-curl-class/src/Curl/ArrayUtil.php',
+        'Curl\\CaseInsensitiveArray' => __DIR__ . '/..' . '/php-curl-class/php-curl-class/src/Curl/CaseInsensitiveArray.php',
+        'Curl\\Curl' => __DIR__ . '/..' . '/php-curl-class/php-curl-class/src/Curl/Curl.php',
+        'Curl\\Decoder' => __DIR__ . '/..' . '/php-curl-class/php-curl-class/src/Curl/Decoder.php',
+        'Curl\\Encoder' => __DIR__ . '/..' . '/php-curl-class/php-curl-class/src/Curl/Encoder.php',
+        'Curl\\MultiCurl' => __DIR__ . '/..' . '/php-curl-class/php-curl-class/src/Curl/MultiCurl.php',
+        'Curl\\StringUtil' => __DIR__ . '/..' . '/php-curl-class/php-curl-class/src/Curl/StringUtil.php',
+        'Curl\\Url' => __DIR__ . '/..' . '/php-curl-class/php-curl-class/src/Curl/Url.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
@@ -2062,6 +2098,21 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'Lcobucci\\JWT\\Signer\\Rsa\\Sha512' => __DIR__ . '/..' . '/lcobucci/jwt/src/Signer/Rsa/Sha512.php',
         'Lcobucci\\JWT\\Token' => __DIR__ . '/..' . '/lcobucci/jwt/src/Token.php',
         'Lcobucci\\JWT\\ValidationData' => __DIR__ . '/..' . '/lcobucci/jwt/src/ValidationData.php',
+        'League\\Csv\\AbstractCsv' => __DIR__ . '/..' . '/league/csv/src/AbstractCsv.php',
+        'League\\Csv\\ByteSequence' => __DIR__ . '/..' . '/league/csv/src/ByteSequence.php',
+        'League\\Csv\\CannotInsertRecord' => __DIR__ . '/..' . '/league/csv/src/CannotInsertRecord.php',
+        'League\\Csv\\CharsetConverter' => __DIR__ . '/..' . '/league/csv/src/CharsetConverter.php',
+        'League\\Csv\\ColumnConsistency' => __DIR__ . '/..' . '/league/csv/src/ColumnConsistency.php',
+        'League\\Csv\\Exception' => __DIR__ . '/..' . '/league/csv/src/Exception.php',
+        'League\\Csv\\HTMLConverter' => __DIR__ . '/..' . '/league/csv/src/HTMLConverter.php',
+        'League\\Csv\\MapIterator' => __DIR__ . '/..' . '/league/csv/src/MapIterator.php',
+        'League\\Csv\\RFC4180Field' => __DIR__ . '/..' . '/league/csv/src/RFC4180Field.php',
+        'League\\Csv\\Reader' => __DIR__ . '/..' . '/league/csv/src/Reader.php',
+        'League\\Csv\\ResultSet' => __DIR__ . '/..' . '/league/csv/src/ResultSet.php',
+        'League\\Csv\\Statement' => __DIR__ . '/..' . '/league/csv/src/Statement.php',
+        'League\\Csv\\Stream' => __DIR__ . '/..' . '/league/csv/src/Stream.php',
+        'League\\Csv\\Writer' => __DIR__ . '/..' . '/league/csv/src/Writer.php',
+        'League\\Csv\\XMLConverter' => __DIR__ . '/..' . '/league/csv/src/XMLConverter.php',
         'League\\Flysystem\\AdapterInterface' => __DIR__ . '/..' . '/league/flysystem/src/AdapterInterface.php',
         'League\\Flysystem\\Adapter\\AbstractAdapter' => __DIR__ . '/..' . '/league/flysystem/src/Adapter/AbstractAdapter.php',
         'League\\Flysystem\\Adapter\\AbstractFtpAdapter' => __DIR__ . '/..' . '/league/flysystem/src/Adapter/AbstractFtpAdapter.php',
@@ -2813,6 +2864,30 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'Parsedown' => __DIR__ . '/..' . '/erusev/parsedown/Parsedown.php',
+        'Pdp\\Cache' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Cache.php',
+        'Pdp\\CacheException' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/CacheException.php',
+        'Pdp\\Converter' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Converter.php',
+        'Pdp\\CurlHttpClient' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/CurlHttpClient.php',
+        'Pdp\\Domain' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Domain.php',
+        'Pdp\\DomainInterface' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/DomainInterface.php',
+        'Pdp\\Exception' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Exception.php',
+        'Pdp\\Exception\\CouldNotLoadRules' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Exception/CouldNotLoadRules.php',
+        'Pdp\\Exception\\CouldNotLoadTLDs' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Exception/CouldNotLoadTLDs.php',
+        'Pdp\\Exception\\CouldNotResolvePublicSuffix' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Exception/CouldNotResolvePublicSuffix.php',
+        'Pdp\\Exception\\CouldNotResolveSubDomain' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Exception/CouldNotResolveSubDomain.php',
+        'Pdp\\Exception\\InvalidDomain' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Exception/InvalidDomain.php',
+        'Pdp\\Exception\\InvalidLabel' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Exception/InvalidLabel.php',
+        'Pdp\\Exception\\InvalidLabelKey' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Exception/InvalidLabelKey.php',
+        'Pdp\\HttpClient' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/HttpClient.php',
+        'Pdp\\HttpClientException' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/HttpClientException.php',
+        'Pdp\\IDNAConverterTrait' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/IDNAConverterTrait.php',
+        'Pdp\\Installer' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Installer.php',
+        'Pdp\\Manager' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Manager.php',
+        'Pdp\\PublicSuffix' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/PublicSuffix.php',
+        'Pdp\\PublicSuffixListSection' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/PublicSuffixListSection.php',
+        'Pdp\\Rules' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/Rules.php',
+        'Pdp\\TLDConverter' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/TLDConverter.php',
+        'Pdp\\TopLevelDomains' => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/src/TopLevelDomains.php',
         'PharIo\\Manifest\\Application' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Application.php',
         'PharIo\\Manifest\\ApplicationName' => __DIR__ . '/..' . '/phar-io/manifest/src/values/ApplicationName.php',
         'PharIo\\Manifest\\Author' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Author.php',
@@ -4293,6 +4368,11 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'Zend\\Diactoros\\UploadedFileFactory' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/UploadedFileFactory.php',
         'Zend\\Diactoros\\Uri' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/Uri.php',
         'Zend\\Diactoros\\UriFactory' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/UriFactory.php',
+        'anlutro\\cURL\\Laravel\\cURL' => __DIR__ . '/..' . '/anlutro/curl/src/Laravel/cURL.php',
+        'anlutro\\cURL\\Request' => __DIR__ . '/..' . '/anlutro/curl/src/Request.php',
+        'anlutro\\cURL\\Response' => __DIR__ . '/..' . '/anlutro/curl/src/Response.php',
+        'anlutro\\cURL\\cURL' => __DIR__ . '/..' . '/anlutro/curl/src/cURL.php',
+        'anlutro\\cURL\\cURLException' => __DIR__ . '/..' . '/anlutro/curl/src/cURLException.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',

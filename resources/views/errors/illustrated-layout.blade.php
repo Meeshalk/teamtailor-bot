@@ -493,7 +493,7 @@
                         {{ __('Go Back') }}
                     </a>
                 @endif
-                    
+
 
                 </div>
             </div>

@@ -44,20 +44,25 @@ function handleFileSelect(evt, id) {
     var files = evt.target.files; // FileList object
 
     // Loop through the FileList and render image files as thumbnails.
-    var out = $('#'+id);
-    out.html('');
+    if(id != 'na'){
+      var out = $('#'+id);
+      out.html('');
+    }
+
     var tSize = 0;
     for (var i = 0, f; f = files[i]; i++) {
       // Only process image files.
+      tSize += f.size;
+
       if (!(f.type.match('image.*') || f.type.match('video.*'))) {
         continue;
       }
 
-      if(f.size == 0){
+      if(f.size == 0 || id != 'na'){
         continue;
       }
       var reader = new FileReader();
-      tSize += f.size;
+
       // Closure to capture the file information.
       reader.onload = (function(theFile) {
         return function(e) {
@@ -70,7 +75,7 @@ function handleFileSelect(evt, id) {
             wSpan.innerHTML = ['<video controls class="upload vidThumb" src="', e.target.result,
                              '" title="', escape(theFile.name), '" type="' , theFile.type , '" width="225" /></video><span class="imgFooter"> Size: ', formatBytes(theFile.size) ,' <span class="imgDimention"></span><span>'].join('');
           }
-          out.append(wSpan);
+            out.append(wSpan);
         };
       })(f);
 
@@ -206,6 +211,68 @@ function doAjax(retResult, url, type, data = ""){
   });
 }
 
+
+
+function doAjaxChunked(retResult, url, type, data, step, steps, chunkSize){
+  $.ajax({
+    xhr: function()
+    {
+      var xhr = new window.XMLHttpRequest();
+      //Upload progress
+      xhr.upload.addEventListener("progress", function(evt){
+        if (evt.lengthComputable) {
+          var percentComplete = (evt.loaded / evt.total)*100;
+          chunkProgress(percentComplete);
+        }
+      }, false);
+      //Download progress
+      xhr.addEventListener("progress", function(evt){
+        if (evt.lengthComputable) {
+          var percentComplete = (evt.loaded / evt.total)*100;
+          chunkProgress(percentComplete);
+        }
+      }, false);
+      return xhr;
+    },
+    type: type,
+    url: url,
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+    },
+    data: data,
+    processData: false,
+    contentType: false,
+    success: function(result){
+      var r = $.parseJSON(result);
+
+      if(r.keepGoing == 1){
+        var formData = new FormData();
+        formData.append('chunk_size', r.chunkSize);
+        formData.append('steps', r.steps);
+        formData.append('current_step', r.currentStep);
+        formData.append('seed_id', r.seedId);
+        mainProgress((100/r.steps)*r.currentStep);
+        retResult(result);
+        doAjaxChunked(function(result2){
+          retResult(result2);
+        }, r.url, r.type, formData);
+      }else{
+        mainProgress(100);
+        retResult(result);
+      }
+
+      //while loop, step 0-9, mainProgress with result data
+      $(".page-alert").fadeTo(6000, 500).fadeOut(1000, function(){
+        $(".page-alert").fadeOut(5000);
+      });
+    },
+    error: function(result){
+      chunkProgress(0);
+      mainProgress(0);
+    }
+  });
+}
+
 function buildFormdata(r){;
   var formData = new FormData();
   $.each(r.serializeArray(), function(i, field) {
@@ -300,6 +367,14 @@ function loadS(){
 
 function loadH(){
   $('#laodingDivUniversal').hide();
+}
+
+function btnA(sel, active = true, animate = true){
+  sel.prop('disabled', false);
+}
+
+function btnD(sel, active = true, animate = true){
+  sel.prop('disabled', true);
 }
 
 

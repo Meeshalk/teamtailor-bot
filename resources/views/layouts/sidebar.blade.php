@@ -5,26 +5,21 @@
   <ul class="sidebar-menu" data-widget="tree">
     <li class="">
       <a href="{{ route('home') }}">
-        <i class="fa fa-circle-o"></i> <span>Website</span>
-      </a>
-    </li>
-    {{-- <li class="">
-      <a href="{{ route('backend') }}">
         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
       </a>
-    </li> --}}
+    </li>
 
-   {{--  <li class="">
-      <a href="{{ route('backend.department') }}">
-        <i class="fa fa-list-ol"></i> <span>Department</span>
+    <li class="">
+      <a href="{{ route('seed') }}">
+        <i class="fa fa-list-ol"></i> <span>Seed</span>
       </a>
-    </li> --}}
+    </li>
 
-    {{-- <li class="">
-      <a href="{{ route('backend.items') }}">
-        <i class="fa fa-barcode"></i> <span>Items</span>
+    <li class="">
+      <a href="{{ route('domain') }}">
+        <i class="fa fa-barcode"></i> <span>Domains</span>
       </a>
-    </li> --}}
+    </li>
     {{-- <li class="treeview">
       <a href="#">
         <i class="fa fa-barcode"></i>

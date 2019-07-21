@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="{{ url('font-awesome/css/font-awesome.min.css') }}">
 
 <!-- Theme style -->
-<link rel="stylesheet" href="{{ url('theme/css/AdminLTE.css') }}">
+<link rel="stylesheet" href="{{ url('theme/css/AdminLTE.min.css') }}">
 
 
 <!-- AdminLTE Skins -->

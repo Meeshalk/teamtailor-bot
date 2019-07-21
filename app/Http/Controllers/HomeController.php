@@ -16,11 +16,6 @@ class HomeController extends Controller{
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(){
-      $user = User::find(Auth::user()->id);
-      $role = null;
-      foreach ($user->roles as $r) {
-        $role = $r->name;
-      }
-        return view('admin.dashboard', ['role' => $role]);
+        return view('admin.dashboard');
     }
 }
