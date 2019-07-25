@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Domain;
 use App\Seed;
+use App\Http\Controllers\BotController as BC;
 
 class DomainController extends Controller
 {
@@ -42,8 +43,16 @@ class DomainController extends Controller
             $query->skip($skip)->take($cSize)->orderBy('id', 'asc');
           }])->findOrFail($in['seed_id']);
           //process here
+          $res = null;
+          foreach ($seed->domains as $domain) {
+            $tTStatus = $this->findJobsPage($domain->domain);
+            //$res = var_dump($tTStatus)
+            if($tTStatus === false)
+              continue;
+            $res[] = Domain::where('id', $domain->id)->update($tTStatus);
+          }
           $newStep = $cStep+1;
-          echo json_encode(['url' => route('domain.process.chunk'), 'seedId' => $in['seed_id'], 'type' => 'POST', 'steps' => $in['steps'], 'currentStep' => $newStep, 'chunkSize' => $cSize, 'keepGoing' => 1]);
+          echo json_encode(['res' => $res, 'url' => route('domain.process.chunk'), 'seedId' => $in['seed_id'], 'type' => 'POST', 'steps' => $in['steps'], 'currentStep' => $newStep, 'chunkSize' => $cSize, 'keepGoing' => 1]);
         }else{
           echo json_encode(['seedId' => $in['seed_id'], 'steps' => $in['steps'], 'chunkSize' => $in['chunk_size'], 'keepGoing' => 0, 'status' => 1]);
         }
@@ -53,69 +62,29 @@ class DomainController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+
+    public function findJobsPage($domain){
+      set_time_limit(60);
+      $time = microtime(true);
+      $bot = new BC;
+      //fimding subdomain association with teamtailor.com eg. domain.teamtailor.com
+      // $bySubDomain = $bot->findTtAssociation($domain, 'subdomain');
+      // if($bySubDomain !== false && $bySubDomain['status'] === true){
+      //   unset($bySubDomain['status']);
+      //   return $bySubDomain;
+      // }
+
+      $byDomain = $bot->findTtAssociation($domain, 'domain');
+      if($byDomain !== false && $byDomain['status'] === true){
+        //verify job page
+        //get job data
+        print_r($byDomain);
+      }
+
+      //return false;
+
+
+      echo $endTime = (microtime(true) - $time) . ' seconds<br />';
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Domain  $domain
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Domain $domain)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Domain  $domain
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Domain $domain)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Domain  $domain
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Domain $domain)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Domain  $domain
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Domain $domain)
-    {
-        //
-    }
 }

@@ -11,7 +11,7 @@
                 <th>#</th>
                 <th>Domain</th>
                 <th>Seed File</th>
-                <th>Reachable URL</th>
+                <th>Job Site</th>
                 <th>Verified</th>
                 <th>Job Page</th>
                 <th>Job #</th>
@@ -28,13 +28,40 @@
                  <td>{{ $list->domain }}</td>
                  <td><a href="{{ route('seed.show', $list->domainable->id) }}">{{ $list->domainable->name }}</a></td>
                  {{-- <td><a href="{{ route('seed.show', $list->domainable->id) }}" class="btn btn-success btn-xs mb5i">{{ $list->domainable->name.' List' }}</a></td> --}}
-                 <td>{{ $list->redirected_url }}</td>
-                 <td>{{ $list->verified }}</td>
-                 <td>{{ $list->job_page }}</td>
+                 <td>
+                   @if ($list->redirected_url != false)
+                     @php
+                     $jd = $list->redirected_url;
+                       $jd = str_replace('http://', '', $jd);
+                       $jd = str_replace('https://', '', $jd);
+                       $jd = substr_replace($jd, '', strpos($jd, '/'), strlen('/'));
+                     @endphp
+                     <a href="{{$list->redirected_url}}" title="{{$list->redirected_url}}" target="_blank" class="btn">{{$jd}}</a>
+                   @else
+                     {{ '' }}
+                   @endif
+                 </td>
+                 @if ($list->verified == 1)
+                   <td><span class="badge bg-green tags">{{ 'Yes' }}</span></td>
+                 @else
+                   <td><span class="badge bg-red tags">{{ 'No' }}</span></td>
+                 @endif
+                 <td>
+                   @if ($list->job_page != false)
+                     @php
+                     $jp = $list->job_page;
+                       $jp = str_replace('http://', '', $jp);
+                       $jp = str_replace('https://', '', $jp);
+                     @endphp
+                     <a href="{{$list->job_page}}" title="{{$list->job_page}}" target="_blank" class="btn">{{$jp}}</a>
+                   @else
+                     {{ '' }}
+                   @endif
+                 </td>
                  <td>{{ $list->job_count }}</td>
                  <td>
                    <a href="{{ route('domain.show', $list->id) }}" class="btn btn-success btn-xs mb5i">Jobs</a>
-                   @include('layouts.deleteForm', ['form' => ['route' => 'domain.delete', 'id' => $list->id, 'msg' => "Do you really want to delete this domain and all other related data, like jobs information and contact details etc.?"]])
+                   {{-- @include('layouts.deleteForm', ['form' => ['route' => 'domain.delete', 'id' => $list->id, 'msg' => "Do you really want to delete this domain and all other related data, like jobs information and contact details etc.?"]]) --}}
                  </td>
                </tr>
                @php

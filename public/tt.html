@@ -1,0 +1,1753 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"1d0ca937e7","applicationID":"96572311","transactionName":"JwlZQkQOVFVWERxZXwYVXkJTTltWXhNSXVkBFRhFXg5P","queueTime":5,"applicationTime":379,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={xpid:"VQ4GWFVTDBAJUlRVBQIGVw=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(18),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(19),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var x=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof x&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof x&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(21)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(21)(r);n.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(21)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(21)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(b?b.then(a):w?w(a):(E=-E,R.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(21)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var x=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(){var t=window.NREUM,n=t.info.accountID||null,e=t.info.agentID||null,r=t.info.trustKey||null,i="btoa"in window&&"function"==typeof window.btoa;if(!n||!e||!i)return null;var a={v:[0,1],d:{ty:"Browser",ac:n,ap:e,id:o.generateCatId(),tr:o.generateCatId(),ti:Date.now()}};return r&&n!==r&&(a.d.tk=r),btoa(JSON.stringify(a))}var o=t(16);n.exports={generateTraceHeader:r}},{}],11:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(l[r],this.listener,!1);n.aborted||(e.duration=s.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==n.status&&(n.status=0):a(this,t),e.cbTime=this.cbTime,d.emit("xhr-done",[t],t),c("xhr",[n,e,this.startTime]))}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return w(r)}function i(t,n){var e=f(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}function a(t,n){t.params.status=n.status;var e=o(n,t.lastSize);if(e&&(t.metrics.rxSize=e),t.sameOrigin){var r=n.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(12),u=t(10).generateTraceHeader,d=t("ee"),l=["load","error","abort","timeout"],p=l.length,h=t("id"),m=t(15),w=t(14),v=window.XMLHttpRequest;s.features.xhr=!0,t(9),d.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,n.loadCaptureCalled=!1,t.addEventListener("load",function(e){a(n,t)},!1),m&&(m>34||m<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),d.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),d.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var e=!1;if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(e=!!NREUM.init.distributed_tracing.enabled),e&&this.sameOrigin){var r=u();r&&n.setRequestHeader("newrelic",r)}}),d.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=w(r);i&&(e.txSize=i)}this.startTime=s.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{d.emit("internal-error",[e])}catch(r){}}};for(var a=0;a<p;a++)n.addEventListener(l[a],this.listener,!1)}),d.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),d.on("xhr-load-added",function(t,n){var e=""+h(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),d.on("xhr-load-removed",function(t,n){var e=""+h(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),d.on("addEventListener-end",function(t,n){n instanceof v&&"load"===t[0]&&d.emit("xhr-load-added",[t[1],t[2]],n)}),d.on("removeEventListener-end",function(t,n){n instanceof v&&"load"===t[0]&&d.emit("xhr-load-removed",[t[1],t[2]],n)}),d.on("fn-start",function(t,n,e){n instanceof v&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=s.now()))}),d.on("fn-end",function(t,n){this.xhrCbStart&&d.emit("xhr-cb-time",[s.now()-this.xhrCbStart,this.onload,n],n)})}},{}],12:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],13:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(18),s=t(19),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t,n){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,n])}},{}],14:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],15:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],16:[function(t,n,e){function r(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(n=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&Uint8Array&&(n=r.getRandomValues(new Uint8Array(31)));for(var o=[],i=0;i<16;i++)o.push(t().toString(16));return o.join("")}n.exports={generateUuid:r,generateCatId:o}},{}],17:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],18:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],19:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],20:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],21:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(19),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[g[e]];return d&&d.push([x,e,r,a]),a}}function p(t,n){y[t]=m(t).concat(n)}function h(t,n){var e=y[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return y[t]||[]}function w(t){return d[t]=d[t]||o(e)}function v(t,n){f(t,function(t,e){n=n||"feature",g[e]=n,n in u||(u[n]=[])})}var y={},g={},x={on:p,addEventListener:p,removeEventListener:h,emit:e,get:w,listeners:m,context:n,buffer:v,abort:a,aborted:!1};return x}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(18),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=b.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(g,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return R.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(18),u=t("ee"),d=t(17),l=window,p=l.document,h="addEventListener",m="attachEvent",w=l.XMLHttpRequest,v=w&&w.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:w,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},x=w&&v&&v[h]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:x,userAgent:d};t(13),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,R=t(20)},{}]},{},["loader",2,11,4,3]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Findwise - Welcome to a great place to work!</title>
+
+
+        <link rel="icon" href="https://favicons.teamtailor-cdn.com/icon?url=https://www.findwise.com&size=16..32..500">
+        <link rel="apple-touch-icon" href="https://favicons.teamtailor-cdn.com/icon?url=https://www.findwise.com&size=16..196..500" sizes="196x196">
+
+  <meta name="description" content="Work with a team of highly skilled consultants within areas such as software engineering, user experience, information management, business analysis, data scien" />
+  <meta name="keywords" content="Job opportunities, Jobs, Career, Career site" />
+
+
+
+  <link rel="alternate" type="application/rss+xml" title="Blog Posts" href="/blog/posts.rss" /><link rel="alternate" type="application/rss+xml" title="Jobs" href="/jobs.rss" />
+
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Findwise - Welcome to a great place to work!" />
+  <meta property="og:site_name" content="Findwise" />
+  <meta property="og:url" content="http://career.findwise.com/" />
+  <meta property="og:description" content="Work with a team of highly skilled consultants within areas such as software engineering, user experience, information management, business analysis, data science, machine learning and linguistics...." />
+  <meta property="og:image" content="https://res.cloudinary.com/teamtailor/image/upload/c_limit,f_auto,h_900,w_1600/v1493967971/bwbe5bufxxnr7fzr1wvv.jpg" />
+        <meta property="og:image:width" content="1600" />
+        <meta property="og:image:height" content="900" /><meta property="og:image" content="https://res.cloudinary.com/teamtailor/image/upload/c_limit,f_auto,h_900,w_1600/v1456323454/tisudrrcee42htbfw2df.jpg" />
+        <meta property="og:image:width" content="1600" />
+        <meta property="og:image:height" content="900" />
+
+
+
+
+
+  <link rel="stylesheet" media="screen" href="https://assets.cdn.teamtailor.com/assets/jobsite/jobsite-f82e7bb972cdecfe327a0c1e01f04a0316e0b6596a1230db459668777a2f18c5.css" />
+<style>@media screen and (min-width: 1200px) {
+  body {
+      background-image: url(https://res.cloudinary.com/teamtailor/image/upload/c_limit,f_auto,q_80,w_3000/v1456323026/oevj42vvgfcs1ojkouz6.jpg);
+      background-repeat: repeat;
+  }
+}
+
+/* Background colors */
+
+.u-primary-background-color {
+  background-color: #ffffff;
+}
+.u-secondary-background-color {
+  background-color: #ff9441;
+}
+.u-tertiary-background-color {
+  background-color: #ededed;
+}
+
+/* Text colors */
+
+.u-primary-text-color {
+  color: #333333;
+}
+.u-primary-text-color-lighten {
+ color: #666666;
+}
+.u-secondary-text-color,
+.u-secondary-text-color a {
+  color: #ffffff;
+}
+
+.u-primary-background-as-text-color {
+  color: #ffffff; /* used for blog tags */
+}
+
+/* Button radius */
+
+.btn,
+.btn-link {
+  border-radius: 40px;
+}
+
+/* Button--filled, apply and sumbit buttons on primary background */
+
+.u-primary-button-text-color,
+.u-primary-button-text-color:hover,
+.u-primary-button-text-color:focus {
+  color: #ffffff;
+}
+
+.u-secondary-button-text-color,
+.u-secondary-button-text-color:hover,
+.u-secondary-button-text-color:focus {
+  color: #ff9441;  /* Used on filled button on secondary background */
+}
+
+.u-primary-button-background-color {
+  background-color: #ff9441;
+  border-color: #ff9441;
+}
+.u-primary-button-background-color:hover,
+.u-primary-button-background-color:focus {
+  background-color: #ffa25a;
+  border-color: #ffa25a;
+}
+
+/* Filled buttons on secondary background */
+
+.u-secondary-button-background-color {
+  background-color: #ffffff;
+  border-color:  #ffffff;
+}
+
+.u-secondary-button-background-color:hover,
+.u-secondary-button-background-color:focus {
+  background-color: #ffffff;
+  border-color:  #ffffff;
+}
+
+/* Button--outlined */
+
+.u-primary-button-background-color.tt-button--outlined {
+  background: transparent;
+  color: #ff9441;
+  border-color: #ff9441;
+}
+.u-primary-button-background-color.tt-button--outlined:hover,
+.u-primary-button-background-color.tt-button--outlined:focus {
+  background: transparent;
+  color: #ffbf8d;
+  border-color: : #ffbf8d;
+}
+
+/* Button--outlined on secondary backgrounds */
+
+.u-secondary-button-background-color.tt-button--outlined {
+  background: transparent;
+  color: #ffffff;
+}
+.u-secondary-button-background-color.tt-button--outlined:hover,
+.u-secondary-button-background-color.tt-button--outlined:focus {
+  background: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Button clean in job form */
+
+.btn-clean {
+  color: #ff9441;
+}
+
+.btn-clean:hover,
+.btn-clean:focus {
+  border-color: #ffbf8d;
+}
+
+/* Link colors */
+
+a,
+.u-link-color {
+  color: #ff9441;
+}
+a:hover,
+a:focus,
+.u-link-color:hover,
+.u-link-color:focus {
+  color: #ffbf8d;
+}
+
+a.u-secondary-text-color:hover,
+a.u-secondary-text-color:focus {
+  color: #ffffff;
+}
+
+.u-secondary-background-color p a {
+  color: #ffffff;
+}
+
+.u-secondary-background-color p a:hover,
+.u-secondary-background-color p a:focus {
+  color: #ffffff;
+}
+
+.u-background-link-color {
+  background-color: #ff9441;
+}
+
+.u-link-color.u-no-hover:hover,
+.u-link-color.u-no-hover:focus {
+  color: #ff9441;
+}
+
+.u-link-border-color {
+  border-color: #ff9441;
+}
+
+.u-link-border-color:hover,
+.u-link-border-color:focus {
+  border-color: #ff7204;
+}
+
+/* Job lists colors and gradients */
+
+.jobs.thick .u-primary-background-color.border {
+  background-image: linear-gradient(90deg, #ffffff 0%, #e6e6e6 30%, #e6e6e6 70%, #ffffff 100%);
+}
+.jobs.thick .u-primary-background-color.gradient:hover,
+.jobs.thick .u-primary-background-color.gradient:focus {
+  background-image: linear-gradient(90deg, #ffffff 0%, #f2f2f2 30%, #f2f2f2 70%, #ffffff 100%);
+}
+
+.jobs.thin .u-primary-background-color {
+  border-bottom: 1px solid #e6e6e6;
+}
+.jobs.thin .u-primary-background-color:hover,
+.jobs.thin .u-primary-background-color:focus {
+  background-color: #f2f2f2;
+}
+
+.jobs.card .u-primary-background-color {
+  border: 1px solid #e6e6e6;
+}
+.jobs.card .u-primary-background-color:hover,
+.jobs.card .u-primary-background-color:focus {
+  border-color: #f2f2f2;
+  background-color: #f2f2f2;
+}
+
+.jobs.card-image .u-primary-background-color .job-metrics {
+  background-color: #fcfcfc;
+}
+
+/* Group companies */
+
+.cover__companies {
+  background-size: cover;
+  min-height: 200px;
+}
+
+.box-list-inner a:hover .cover__companies,
+.box-list-inner a:focus .cover__companies {
+  background-color: #e6e6e6
+}
+
+/* Faq */
+
+.faq-items__item.u-link-color:hover,
+.faq-items__item.u-link-color:focus {
+  background-color: #f2f2f2;
+}
+
+/* Misc colors */
+
+.header__main.no-cover.background {
+  background-color: #ff9441;
+}
+.companies.show .header__main.no-cover {
+  background-color: #ff9441;
+}
+.pages.show .header__main.no-cover {
+  background-color: #ff9441;
+}
+
+.header__main .sliding-menu-content .career-site-navigation li a:hover,
+.header__main .sliding-menu-content .career-site-navigation li a:focus {
+  background-image: linear-gradient(-90deg, rgba(0, 0, 0, 0.0) 12%, #ff9441 30%, #ff9441 100%);
+}
+
+.hero .video-thumbnail a:before {
+  color:  #ff9441;
+}
+.hero .video-thumbnail:hover a:before {
+  color:  #ffb174;
+}
+
+.company-info > div:first-child {
+  background-color: rgba(255, 148, 65, 0.9);
+}
+
+.box-list ul li a:hover .box-list-info p.u-primary-text-color,
+.box-list ul li a:focus .box-list-info p.u-primary-text-color {
+  color: #ff9441;
+}
+
+.owl-carousel .owl-dots .owl-dot.active span {
+  background: #ff9441;
+}
+
+.thumbnail-hover .img:after {
+  background-color: rgba(255, 148, 65, 0.5);
+}
+
+
+#map .leaflet-marker-icon.active {
+  color: #ffbf8d;
+}
+#map .leaflet-marker-icon {
+  color: #ff9441;
+}
+#map .leaflet-marker-icon-small {
+  background-color: #ff9441;
+}
+
+/* Map zoom button styling */
+#map .leaflet-control-zoom {
+  border: 0;
+}
+#map .leaflet-control-zoom a {
+  background-color: #ff9441;
+  color: #ffffff;
+  line-height: 27px;
+}
+#map .leaflet-control-zoom a:hover {
+  background-color: #ffbf8d;
+}
+
+.dropdown .dropdown-menu,
+.dropdown .dropdown-menu li,
+.dropdown .dropdown-button,
+.dropdown .dropdown-button:after {
+  color: #ff9441;
+  border-color: #ff9441;
+}
+
+.address-wrapper .dropdown .dropdown-button,
+.address-wrapper .dropdown .dropdown-button:after {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* employee referral box - boxed site */
+
+.c-employee-referral .wrapper:before {
+  background-color: #ffffff;
+}
+
+/* forms */
+
+.form-control:hover,
+.form-control:focus {
+  border-color: #ff9441;
+}
+
+.radio_buttons:focus + label:before {
+  border: solid #ff9441 2px;
+}
+
+.rangeslider__fill {
+  background-color: #ff9441;
+}
+
+.label-switch input[type="checkbox"]:checked + .checkbox {
+  background-color: #ff9441;
+}
+
+.required input[type=radio] + label:before,
+.optional input[type=radio] + label:before,
+.radio-multiply input[type=radio] + label:before {
+  background-color: white;
+}
+
+.required input[type=radio]:checked + label:before,
+.optional input[type=radio]:checked + label:before,
+.radio-multiply input[type=radio]:checked + label:before {
+  background-color: #ff9441;
+}
+
+[class*=" bjs-icon-"]:before, [class^=bjs-icon-]:before {
+  color: #ff9441;
+}
+
+.job_applications.thanks .whats-next ul.indicator li a,
+.job_applications.thanks .whats-next ul.indicator li span {
+  border-color: #ff9441;
+}
+
+.job_applications.thanks .whats-next ul.indicator li.completed a,
+.job_applications.thanks .whats-next ul.indicator li.completed span,
+.job_applications.thanks .whats-next ul.indicator li a:hover {
+  background-color: #ff9441;
+  color: #ffffff;
+}
+
+.job_applications.thanks .whats-next ul.indicator li span {
+  color: #ff9441;
+}
+
+.job_applications.thanks .whats-next ul.puck-list li.puck:nth-child(2) {
+  background-color: rgba(255, 148, 65, 0.5);
+}
+
+.job_applications.thanks .whats-next ul.puck-list li.puck .indicate { /* inverting colors */
+  background-color: #ffffff;
+  color: #ff9441;
+}
+
+::selection {
+  background-color: #ff9441;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #ff9441;
+  color: white;
+}
+
+.video-recorder-initial .btn-primary {
+  background-color: #ff9441;
+}
+.video-recorder-initial .btn-primary:hover {
+  background-color: #ffbf8d;
+}
+
+body,
+p {
+  font-family: "Calibri", "Calibri Regular", "sans-serif";
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6,
+.companies.show section.hero h1 {
+  font-family: "Calibri", "Calibri Regular", "sans-serif";
+  font-weight: ;
+}
+.companies.show section.hero h1,
+.companies.show section.hero .jobs-link a {
+  color: #ffffff;
+}
+
+.jobsite-simple-page {
+  border-color: #ff9441;
+}
+
+.jobsite-simple-page__icon  {
+  background-color: #ff9441;
+}
+
+.testimonial__item blockquote p:before,
+.testimonial__item blockquote p:after {
+  color: #ff9441;
+}
+
+
+#tt-container{margin:0 auto;width:970px;padding:0 15px}#tt-inner-container{padding:27px 15px 0 27px;margin-right:-15px;margin-left:-15px;}#tt-branding-container{overflow:auto;width:100%}#tt-logotype,#tt-company-name{float:left}#tt-badge{float:right;padding:10px 30px;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px}#tt-badge h2{color:#fff;margin:0;font-size:18px}#tt-inner-container h1{margin:0}#tt-navigation{margin:10px 0 0 0;padding:0 0 10px 0;font-size:0;border-bottom:1px solid #eee}#tt-navigation li{display:inline-block;list-style:none;margin:0}#tt-navigation li a{display:inline-block;padding:5px 10px;-webkit-transition:color 0.2s ease-in-out;-moz-transition:color 0.2s ease-in-out;-ms-transition:color 0.2s ease-in-out;-o-transition:color 0.2s ease-in-out;transition:color 0.2s ease-in-out}#tt-navigation li a:hover{text-decoration:none}
+
+#tt-header {
+  height: 150px;
+background: #2D2D2D;
+border-bottom: 50px solid #ff9441;
+}
+
+#tt-navigation {
+  border: none;
+  margin-top: 27px;
+}
+
+#tt-navigation li a {
+  color: #fff;
+
+}
+
+#tt-navigation li:first-child a {
+  padding-left: 5px;
+}
+
+#tt-header #tt-container #tt-inner-container ul li a:hover {
+  color: #FFBF8E;
+}
+
+#tt-navigation li.active a {
+  color: #fff;
+}
+
+#tt-badge {
+  background-color: #fff;
+  margin-top: 4px;
+  margin-right: 18px;
+}
+
+#tt-badge h2 {
+  color: #2D2D2D;
+}
+</style>
+
+
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <script src="https://assets.cdn.teamtailor.com/assets/jobsite/analytics-7ed62e2383b5ffa1dfa5f4f9067dab1edd3d052b005bc19e29b1f8505648f8bb.js"></script>
+<script>window.tt_track('aGZNSXlyL2lTYmhQSzltemRsVnJ6VWwzTXE5N1NGeWxpdHRPUk0ydUpvWWF5alRyT1lwZGg5V2YxVCszb28rSy93aFlJem05eFd4TkRBZ2hlYmRPZXRpbUNSZlBIUy9tZFpKTFdOQ2Z5ZnNUdm9CZUwvTVFTUWI3VGRsR0JoVU1USlJ1emwwYU5weG5IQ1VaM0FjS1dnPT0tLTNYTmJ3MlBJWXpuVVZEd2FUL1FBNWc9PQ==--52a79ae9e6143ab572469fe52b527b4c4803c58a');window.tt_enableCrossDomainTracking(["career.findwise.com","findwise.teamtailor.com"]);</script>
+
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28221777-1', {
+        cookieDomain: 'career.findwise.com',
+        cookieExpires: 60 * 60 * 24 * 30 * 13
+      });
+
+      ga('set', 'dimension3', 'en');
+      ga('send', 'pageview');
+
+
+
+          ga('create', 'UA-3357782-7', {
+            name: 'clientTracker',
+            allowLinker: true,
+            cookieDomain: 'career.findwise.com',
+            cookieExpires: 60 * 60 * 24 * 30 * 13
+          });
+
+ga('clientTracker.send', 'pageview');
+      </script>
+
+  <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53752524-1', {
+          name: 'statsTracker',
+          allowLinker: true,
+          cookieDomain: 'career.findwise.com',
+          cookieExpires: 60 * 60 * 24 * 30 * 13
+        });
+        ga('statsTracker.require', 'linker');
+        ga('statsTracker.linker:autoLink', ['career.findwise.com', 'findwise.teamtailor.com']);
+
+        ga('statsTracker.set', 'dimension1', '468');
+
+
+
+
+
+
+
+
+
+
+
+        ga('statsTracker.send', 'pageview', {
+          'hitCallback': function(){
+            var redirectElement = document.getElementById("redirect-me");
+            if(redirectElement) {
+              document.location = redirectElement.getAttribute("data-url");
+            }
+          }
+        });
+      </script>
+
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '312048829220990');
+    fbq('track', 'PageView');
+
+    </script><noscript><img height="1" width="1" style="display:none" alt="facebook tracking"
+        src="https://www.facebook.com/tr?id=312048829220990&ev=PageView&noscript=1"
+        /></noscript>
+
+
+
+
+    <style type="text/css">
+      .hero-image--startpage {
+        background-image:
+        linear-gradient(to bottom, rgba(0,0,0,0.37) 0%, rgba(0,0,0,0.37) 50%),
+        url(https://res.cloudinary.com/teamtailor/image/upload/c_lfill,dpr_2.0,f_auto,g_faces:center,h_500,q_auto,w_480/v1493967971/bwbe5bufxxnr7fzr1wvv.jpg);
+      }
+
+      @media screen and (min-width: 480px) {
+        .hero-image--startpage {
+          background-image:
+          linear-gradient(to bottom, rgba(0,0,0,0.37) 0%, rgba(0,0,0,0.37) 50%),
+          url(https://res.cloudinary.com/teamtailor/image/upload/c_lfill,dpr_2.0,f_auto,g_faces:center,h_1800,q_auto,w_1536/v1493967971/bwbe5bufxxnr7fzr1wvv.jpg);
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        .hero-image--startpage {
+
+            background-image:
+            linear-gradient(to bottom, rgba(0,0,0,0.37) 0%, rgba(0,0,0,0.37) 50%),
+            url(https://res.cloudinary.com/teamtailor/image/upload/c_lfill,f_auto,g_faces:center,h_500,q_auto,w_1200/v1493967971/bwbe5bufxxnr7fzr1wvv.jpg);
+
+        }
+      }
+    </style>
+
+
+</head>
+<body id="jobsite" class="jobsite-layout companies show">
+
+  <div class="outer-wrapper outer-wrapper--with-navigation  block-site u-primary-background-color" id="top">
+    <header id="header" class="header__main " data-section-route="header">
+
+        <div class="js-menu-trigger sliding-menu-button burger-wrapper">
+  <hr class="burger burger-bun-top">
+  <hr class="burger burger-filling">
+  <hr class="burger burger-bun-bottom">
+  <span>Career menu</span>
+</div>
+
+<nav class="js-menu sliding-menu-content">
+  <ul class="career-site-navigation">
+
+      <li  class="active" >
+        <a href="/">
+          Start
+        </a>
+      </li>
+
+      <li >
+        <a href="/people">
+          People
+        </a>
+      </li>
+
+      <li >
+        <a href="/jobs">
+          Jobs
+        </a>
+      </li>
+
+      <li >
+        <a href="/blog">
+          Find out more about Findwise
+        </a>
+      </li>
+
+
+
+  </ul>
+
+  <div class="miscellaneous-navigation">
+    <span class="miscellaneous-navigation__topic">Employee login</span>
+
+      <a class="miscellaneous-navigation__item" href="https://app.teamtailor.com/companies/PguOqvgbf1U/dashboard">
+        <span class="icon-lock"></span> Log in
+      </a>
+
+
+
+
+
+      <span class="miscellaneous-navigation__topic">Visit our homepage</span>
+      <a class="miscellaneous-navigation__item" href="http://www.findwise.com">findwise.com</a>
+
+  </div>
+</nav>
+
+
+
+      <a class="logo hidden-background" href="http://career.findwise.com">
+
+
+      <img src="https://res.cloudinary.com/teamtailor/image/upload/c_limit,dpr_2.0,f_auto,h_65,q_80,w_200/v1456323454/tisudrrcee42htbfw2df.png" alt="Findwise">
+
+
+</a>
+
+
+
+
+          <a href="https://findwise.teamtailor.com/connect" class="btn btn--large tt-button--filled u-primary-button-text-color u-primary-button-background-color  diff u-hidden js-btn-connect"
+            data-event-tracking="click"
+            data-event-category="Career"
+            data-event-name="Section: Nav"
+            data-event-label="Click: Connect">Connect</a>
+
+
+
+    </header>
+
+
+  <section class="section-block u-no-margin hero  u-secondary-background-color" id="section-cover" data-section-route="section" data-section-model="15581">
+
+    <div class="hero-image with-video hero-image--startpage"></div>
+
+
+
+    <div class="hero-video-overlay" style="background-color: rgba(0,0,0,0.37);"></div>
+
+
+      <div class="hero-video" data-video-url="https://res.cloudinary.com/teamtailor/video/upload/ac_none,c_limit,h_720,so_0,vc_auto,w_1920/v1496387615/mozezoifvhp9qwqe0vom.mp4"> </div>
+
+
+
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1>Welcome to a great place to work!</h1>
+    </div>
+    <div class="cta">
+
+        <a href="https://findwise.teamtailor.com/connect"
+          class="btn tt-button--filled u-primary-button-background-color u-primary-button-text-color"
+          data-event-tracking="click"
+          data-event-category="Career"
+          data-event-name="Section: Cover"
+          data-event-label="Click: Connect">Connect</a>
+
+
+
+
+          <a href="#section-jobs"
+            class="btn js-jobs-link tt-button--filled u-primary-button-background-color u-primary-button-text-color"
+            data-event-tracking="click"
+            data-event-category="Career"
+            data-event-name="Section: Cover"
+            data-event-label="Click: Browse Jobs">Job openings</a>
+
+
+    </div>
+  </div>
+
+
+    <div class="video-thumbnail">
+      <a href="https://vimeo.com/219631114" class="lightbox" rel="hero-video">
+        <img class="lazy" data-src="https://res.cloudinary.com/teamtailor/image/vimeo/w_135,q_auto/219631114.jpg">
+      </a>
+    </div>
+
+
+
+</section>
+
+<div class="section-block u-margin-top--large">
+
+  <section class="box-list sharing">
+      <div class="sharrre"  data-url="http://career.findwise.com" data-twitter="Findwise">
+      </div>
+
+  </section>
+
+
+</div>
+<a name="content"></a>
+
+
+
+  <section class="section-block text-section u-primary-text-color" id="section-welcome" data-section-route="section" data-section-model="15582">
+    <div class="wrapper">
+      <div class="text-section-inner">
+        <h2 class="u-primary-text-color">Join our team!</h2>
+
+          <p>Work with a team of highly skilled consultants within areas such as software engineering, user experience, information management, business analysis, data science, machine learning and linguistics. Together we help customers find the information they need, analyze their data and turn it into valuable insights.</p><p><br></p><iframe style="width: 500px; height: 281px;" src="//player.vimeo.com/video/219631114" allowfullscreen="" frameborder="0"></iframe><p><em><strong></strong></em></p><p><strong><br></strong></p><p><strong>The way we roll </strong><br></p><p>Findwise approach to management is to maintain an open, trusting environment with a flat organizational structure, in which flexible working hours, freedom and own responsibility are principal. We believe that this approach combined with a lot of fun activities is the best way to increase engagement and innovation.    </p><p>And so far, it has paid off; We are currently on 9th place in the Great place to work ranking in Sweden, 39th place on the Great place to work ranking in Europe and we were also named National Champions in the European Business Awards earlier this year!</p><p><img src="https://resources.mynewsdesk.com/image/upload/c_limit,dpr_0.800000011920929,f_auto,h_700,q_auto,w_690/uhmoqm84jx6l5caca4th.jpg" "=""><br></p><p><strong><strong><strong><strong></strong></strong></strong></strong><br><br></p><hr>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <section class="section-block employees-list" id="section-people" data-section-route="section" data-section-model="15584">
+    <div class="wrapper">
+      <div class="employees-list-inner">
+        <h2 class="u-primary-text-color">Meet the Findwizards</h2>
+
+          <strong class="u-primary-text-color">120 coworkers</strong>
+
+        <ul class="">
+
+            <li>
+  <a class="thumbnail-hover circle" href="/people/4758-mickel-gronroos">
+    <div class="img-container">
+
+        <div class="img lazy u-tertiary-background-color" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_150,q_80,w_150/v1418376540/kdileifwliove4tz9oav.jpg"></div>
+
+    </div>
+    <span class="name u-link-color">Mickel Grönroos</span>
+    <span class="title u-text--small u-primary-text-color">Senior Advisor</span>
+  </a>
+</li>
+<li>
+  <a class="thumbnail-hover circle" href="/people/244404-niklas-helmertz">
+    <div class="img-container">
+
+        <div class="img lazy u-tertiary-background-color" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_150,q_80,w_150/v1550789344/vmy1ot6cczxd0jnljhiu.jpg"></div>
+
+    </div>
+    <span class="name u-link-color">Niklas Helmertz</span>
+    <span class="title u-text--small u-primary-text-color"></span>
+  </a>
+</li>
+<li>
+  <a class="thumbnail-hover circle" href="/people/196096-artur-szkopek">
+    <div class="img-container">
+
+        <div class="img lazy u-tertiary-background-color" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_150,q_80,w_150/v1548252432/vvoxrk5zumms4vnh1ykz.jpg"></div>
+
+    </div>
+    <span class="name u-link-color">Artur Szkopek</span>
+    <span class="title u-text--small u-primary-text-color">Full-stack Java Developer</span>
+  </a>
+</li>
+<li>
+  <a class="thumbnail-hover circle" href="/people/4739-liis-praats">
+    <div class="img-container">
+
+        <div class="img lazy u-tertiary-background-color" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_150,q_80,w_150/v1418376539/rvejj3zhjynqi04xam74.jpg"></div>
+
+    </div>
+    <span class="name u-link-color">Liis Prääts</span>
+    <span class="title u-text--small u-primary-text-color">Findability consultant</span>
+  </a>
+</li>
+<li>
+  <a class="thumbnail-hover circle" href="/people/4733-johan-holmstrom">
+    <div class="img-container">
+
+        <div class="img lazy u-tertiary-background-color" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_150,q_80,w_150/v1418643257/ipb8qewsvpbiz2kyet9g.jpg"></div>
+
+    </div>
+    <span class="name u-link-color">Johan Holmström</span>
+    <span class="title u-text--small u-primary-text-color">Interaction designer</span>
+  </a>
+</li>
+<li>
+  <a class="thumbnail-hover circle" href="/people/4773-simon-stenstrom">
+    <div class="img-container">
+
+        <div class="img lazy u-tertiary-background-color" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_150,q_80,w_150/v1450079266/l05gj3jhrmmddbze6cul.jpg"></div>
+
+    </div>
+    <span class="name u-link-color">Simon Stenström</span>
+    <span class="title u-text--small u-primary-text-color">Findability Consultant</span>
+  </a>
+</li>
+<li>
+  <a class="thumbnail-hover circle" href="/people/4779-tomasz-sobczak">
+    <div class="img-container">
+
+        <div class="img lazy u-tertiary-background-color" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_150,q_80,w_150/v1476099651/y6spkqrltkh9elxnsies.jpg"></div>
+
+    </div>
+    <span class="name u-link-color">Tomasz Sobczak</span>
+    <span class="title u-text--small u-primary-text-color">Regional Sales &amp; Business Development Manager</span>
+  </a>
+</li>
+<li>
+  <a class="thumbnail-hover circle" href="/people/244391-frederik-rasmussen">
+    <div class="img-container">
+
+        <div class="img lazy u-tertiary-background-color" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_150,q_80,w_150/v1550137019/bfujulvz8icjebho9nya.jpg"></div>
+
+    </div>
+    <span class="name u-link-color">Frederik Rasmussen</span>
+    <span class="title u-text--small u-primary-text-color">Findwizard</span>
+  </a>
+</li>
+
+
+        </ul>
+
+          <a href="/people" class="btn-link tt-button--filled u-primary-button-text-color u-primary-button-background-color u-margin-top--medium">
+            <span>More coworkers</span>
+          </a>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="section-block section-block--fill u-no-padding office u-secondary-text-color u-secondary-background-color" id="section-office" data-section-route="section" data-section-model="15585">
+    <div class="office-text">
+      <div class="text-content ">
+        <h2 class="u-secondary-text-color">We want to see you grow! </h2>
+        <p>Working hard and never giving up is more important than thinking you know it all from the start. Being a knowledge based company means our greatest assets are the findability experts. As a findability expert it is OK to fail as long as you learn from the experience. </p>
+      </div>
+    </div>
+
+
+      <div class="office-images">
+        <div class="owl-carousel owl-carousel--workplace owl-theme">
+
+
+              <div class="carousel-image lazy owl-carousel__item" data-src="https://res.cloudinary.com/teamtailor/image/upload/ar_3:2,c_lfill,dpr_2,f_auto,g_faces:center,q_80,w_600/v1490875183/qkcly9akbrd0p5dwzoem.jpg"></div>
+
+
+
+              <div class="carousel-image lazy owl-carousel__item" data-src="https://res.cloudinary.com/teamtailor/image/upload/ar_3:2,c_lfill,dpr_2,f_auto,g_faces:center,q_80,w_600/v1493967618/bjphvieru8awijdcleb9.jpg"></div>
+
+
+
+              <div class="carousel-image lazy owl-carousel__item" data-src="https://res.cloudinary.com/teamtailor/image/upload/ar_3:2,c_lfill,dpr_2,f_auto,g_faces:center,q_80,w_600/v1487783825/scbmrx032yeum4xsdzfq.jpg"></div>
+
+
+
+              <div class="carousel-image lazy owl-carousel__item" data-src="https://res.cloudinary.com/teamtailor/image/upload/ar_3:2,c_lfill,dpr_2,f_auto,g_faces:center,q_80,w_600/v1490875186/dux22adxxybf8ygn71go.jpg"></div>
+
+
+
+              <div class="carousel-image lazy owl-carousel__item" data-src="https://res.cloudinary.com/teamtailor/image/upload/ar_3:2,c_lfill,dpr_2,f_auto,g_faces:center,q_80,w_600/v1490875008/e6pa4nbutfxu9fjmjlsa.jpg"></div>
+
+
+
+              <div class="carousel-image lazy owl-carousel__item" data-src="https://res.cloudinary.com/teamtailor/image/upload/ar_3:2,c_lfill,dpr_2,f_auto,g_faces:center,q_80,w_600/v1481617850/o424ezptw2fruxppomtt.jpg"></div>
+
+
+        </div>
+      </div>
+
+  </section>
+
+
+
+
+
+
+
+
+  <section class="section-block perks u-primary-text-color" id="section-perks" data-section-route="section" data-section-model="15586">
+    <div class="wrapper">
+      <div class="perks-inner">
+        <h2 class="u-primary-text-color">Why join us?</h2>
+
+          <p> We are always looking for talented people to join us. We believe that you choose to apply for a job at Findwise to get..</p>
+
+        <ul>
+
+            <li>
+              <strong class="u-primary-text-color">Work-life balance</strong>
+              <p>A healthy work-life balance is important. Are you an early-bird or a sleepy-head? No problem- our flexible work hours cater both!
+</p>
+            </li>
+
+            <li>
+              <strong class="u-primary-text-color">A place to grow</strong>
+              <p>At Findwise we encourage you to learn more and become the best in what you do. Want to change tracks during the way? No worries, we’re always there to help you get forward. </p>
+            </li>
+
+            <li>
+              <strong class="u-primary-text-color">Fellowship and a lot of FUN!</strong>
+              <p>We organize a lot of Kick-offs, dinners, after work meetups and other fun activities where you get to hang out with your colleagues.  </p>
+            </li>
+
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <section class="section-block jobs-section u-primary-text-color" id="section-jobs" data-section-route="section" data-section-model="15587">
+    <div class="wrapper">
+      <div class="jobs-section-inner">
+
+
+            <h2 class="u-primary-text-color">
+
+
+                  Available jobs at Findwise
+
+
+            </h2>
+
+
+        <div class="u-margin-top u-margin-bottom">
+
+        </div>
+         <div class="job-listing-container">
+
+             <ul class="jobs card jobs--count-9">
+
+                 <li>
+  <a href="/jobs/193177-senior-utvecklare" class="u-primary-background-color ">
+
+      <div>
+
+          <span class="title u-link-color u-no-hover" title="Senior Utvecklare">Senior Utvecklare</span>
+
+
+
+          <span class="meta u-text--small u-primary-text-color ">
+            Software engineering - Stockholm
+          </span>
+          <ul class="tooltip__container tooltip__container--list tooltip__container--list--0">
+
+</ul>
+
+
+      </div>
+
+  </a>
+
+</li>
+
+
+                 <li>
+  <a href="/jobs/30084-erfaren-konsult-inom-analytics-och-data-science-till-findwise-goteborg" class="u-primary-background-color ">
+
+      <div>
+
+          <span class="title u-link-color u-no-hover" title="Erfaren konsult inom analytics och data science till Findwise Göteborg">Erfaren konsult inom analytics och data science...</span>
+
+
+
+          <span class="meta u-text--small u-primary-text-color ">
+            Business consulting - Findwise Gothenburg &amp; HQ
+          </span>
+          <ul class="tooltip__container tooltip__container--list tooltip__container--list--0">
+
+</ul>
+
+
+      </div>
+
+  </a>
+
+</li>
+
+
+                 <li>
+  <a href="/jobs/232725-junior-java-developer" class="u-primary-background-color ">
+
+      <div>
+
+          <span class="title u-link-color u-no-hover" title="Junior Java Developer">Junior Java Developer</span>
+
+
+
+          <span class="meta u-text--small u-primary-text-color ">
+            Software engineering - Płock, Kielce
+          </span>
+          <ul class="tooltip__container tooltip__container--list tooltip__container--list--0">
+
+</ul>
+
+
+      </div>
+
+  </a>
+
+</li>
+
+
+                 <li>
+  <a href="/jobs/205902-java-developer-consultant" class="u-primary-background-color ">
+
+      <div>
+
+          <span class="title u-link-color u-no-hover" title="Java Developer/ Consultant">Java Developer/ Consultant</span>
+
+
+
+          <span class="meta u-text--small u-primary-text-color ">
+            Software engineering - Warszawa, Kielce, Płock
+          </span>
+          <ul class="tooltip__container tooltip__container--list tooltip__container--list--0">
+
+</ul>
+
+
+      </div>
+
+  </a>
+
+</li>
+
+
+                 <li>
+  <a href="/jobs/122338-junior-utvecklare-for-soklosningar-pa-findwise-stockholm" class="u-primary-background-color ">
+
+      <div>
+
+          <span class="title u-link-color u-no-hover" title="Junior utvecklare för söklösningar på Findwise Stockholm">Junior utvecklare för söklösningar på Findwise ...</span>
+
+
+
+          <span class="meta u-text--small u-primary-text-color ">
+            Software engineering - Stockholm
+          </span>
+          <ul class="tooltip__container tooltip__container--list tooltip__container--list--0">
+
+</ul>
+
+
+      </div>
+
+  </a>
+
+</li>
+
+
+                 <li>
+  <a href="/jobs/19618-elastic-och-javautvecklare-till-findwise-goteborg" class="u-primary-background-color ">
+
+      <div>
+
+          <span class="title u-link-color u-no-hover" title="Elastic och Javautvecklare till Findwise Göteborg">Elastic och Javautvecklare till Findwise Göteborg</span>
+
+
+
+          <span class="meta u-text--small u-primary-text-color ">
+            Software engineering - Findwise Gothenburg &amp; HQ
+          </span>
+          <ul class="tooltip__container tooltip__container--list tooltip__container--list--0">
+
+</ul>
+
+
+      </div>
+
+  </a>
+
+</li>
+
+
+                 <li>
+  <a href="/jobs/42557-erfaren-java-konsulent-med-interesse-for-sogemaskiner" class="u-primary-background-color ">
+
+      <div>
+
+          <span class="title u-link-color u-no-hover" title="Erfaren Java konsulent med interesse for Søgemaskiner">Erfaren Java konsulent med interesse for Søgema...</span>
+
+
+
+          <span class="meta u-text--small u-primary-text-color ">
+            Software engineering - Copenhagen
+          </span>
+          <ul class="tooltip__container tooltip__container--list tooltip__container--list--0">
+
+</ul>
+
+
+      </div>
+
+  </a>
+
+</li>
+
+
+                 <li>
+  <a href="/jobs/8345-exjobb" class="u-primary-background-color ">
+
+      <div>
+
+          <span class="title u-link-color u-no-hover" title="Exjobb">Exjobb</span>
+
+
+
+          <span class="meta u-text--small u-primary-text-color ">
+            Stockholm
+          </span>
+          <ul class="tooltip__container tooltip__container--list tooltip__container--list--0">
+
+</ul>
+
+
+      </div>
+
+  </a>
+
+</li>
+
+
+                 <li>
+  <a href="/jobs/4076-spontanansokan-goteborg" class="u-primary-background-color ">
+
+      <div>
+
+          <span class="title u-link-color u-no-hover" title="Spontanansökan Göteborg">Spontanansökan Göteborg</span>
+
+
+
+          <span class="meta u-text--small u-primary-text-color ">
+            Findwise Gothenburg &amp; HQ
+          </span>
+          <ul class="tooltip__container tooltip__container--list tooltip__container--list--0">
+
+</ul>
+
+
+      </div>
+
+  </a>
+
+</li>
+
+
+             </ul>
+
+        </div>
+
+
+            <a href="/jobs" class="btn-link tt-button--filled u-primary-button-text-color u-primary-button-background-color u-margin-top--large">
+              <span>All jobs</span>
+            </a>
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <section class="section-block section-blog section-block--fill u-no-padding blog u-tertiary-background-color" id="section-blog" data-section-route="section" data-section-model="15588">
+    <div class="u-secondary-background-color">
+      <div class="text-content">
+
+          <h2 class="u-secondary-text-color">Get to know Findwise</h2>
+
+
+          <p class="u-secondary-text-color"> Want to know more about what we´ve done or how it is to work at Findwise? </p>
+
+        <a href="/blog" class="btn-link tt-button--filled u-secondary-button-text-color u-secondary-button-background-color">
+          <span>
+
+              Find out more about Findwise
+
+          </span>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="text-content">
+        <ul>
+
+
+              <li>
+                <a class="title u-link-color" href="/blog/posts/4602-as-an-employee-you-are-encouraged-to-take-risks-if-you-succeed-great-if-you-fail-it-s-not-the-end-of-the-world">&quot;As an employee you are encouraged to take risks. If you succeed - great, if you fail - it&#39;s not the end of the world.&quot;</a>
+                <p class="u-primary-text-color">Meet Amelia Andersson, developer at Findwise How long have you...</p>
+              </li>
+
+              <li>
+                <a class="title u-link-color" href="/blog/posts/4179-findwise-labs-get-inspiration-and-test-projects-from-the-lab">Findwise labs- get inspiration and test projects from the lab!</a>
+                <p class="u-primary-text-color">​ Findwise labs is a playground for ideas within search,...</p>
+              </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section data-section-model="15589"></section>
+
+
+
+
+  <section class="section-block social-feeds only-one" id="section-social" data-section-route="section" data-section-model="15589">
+    <div class="wrapper">
+      <div class="social-feeds-inner">
+
+
+
+        <div class="follow follow-twitter">
+          <a href="http://twitter.com">
+            <i class="icon-twitter u-link-color"></i>
+            <h2 class="u-link-color">
+              @Findwise
+              <span class="provider-name u-primary-text-color">
+                on Twitter
+              </span>
+            </h2>
+          </a>
+        </div>
+
+          <div class="widget widget-twitter">
+            <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/Findwise" data-screen-name="Findwise" data-widget-id="538316186602455041">Tweets av @Findwise</a>
+            <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+          </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="section-block section-block--fill u-no-padding company-info u-secondary-background-color" id="section-locations" data-section-route="section" data-section-model="15590">
+    <div class="offices">
+
+
+        <div class="office-info active" data-office-id="558"  data-lat="57.70671470000001" data-long="11.9837918" >
+
+          <address class="no-location-images">
+            <div class="address-wrapper">
+
+                <div class="js-location-dropdown-placeholder" data-location-name="Findwise Gothenburg &amp; HQ">
+                  <div class="dropdown js-location-dropdown" data-name="location_id">
+                    <div class="dropdown-container">
+                      <div class="dropdown-button">Findwise Gothenburg &amp; HQ</div>
+                      <ul class="dropdown-menu dropdown-select">
+
+                          <li data-value="558">Findwise Gothenburg &amp; HQ</li>
+
+                          <li data-value="570">Copenhagen</li>
+
+                          <li data-value="13679">Helsinki</li>
+
+                          <li data-value="55324">Kielce</li>
+
+                          <li data-value="55093">Płock</li>
+
+                          <li data-value="559">Stockholm</li>
+
+                          <li data-value="560">Warszawa</li>
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+              <p class="u-text--small u-secondary-text-color">
+                Ullevigatan 19<br/>
+                41140 Göteborg
+
+                  <a class="link-directions u-secondary-text-color" href="https://maps.google.com?daddr=57.70671470000001,11.9837918" target="_blank"> Directions</a>
+
+
+                <a href="mailto:info@findwise.com" class="u-secondary-text-color">info@findwise.com</a>
+
+
+                <a href="tel:%2B46%2070%20772%2022%2024" class="u-secondary-text-color">+46 70 772 22 24</a>
+
+              </p>
+            </div>
+          </address>
+
+        </div>
+
+        <div class="office-info " data-office-id="570"  data-lat="55.6847328" data-long="12.5692927" >
+
+          <address class="no-location-images">
+            <div class="address-wrapper">
+
+                <div class="js-location-dropdown-placeholder" data-location-name="Copenhagen">
+                  <h2 class="u-secondary-text-color">Copenhagen</h2>
+                </div>
+
+              <p class="u-text--small u-secondary-text-color">
+                Frederiksborggade 32<br/>
+                1360 Copenhagen
+
+                  <a class="link-directions u-secondary-text-color" href="https://maps.google.com?daddr=55.6847328,12.5692927" target="_blank"> Directions</a>
+
+
+                <a href="mailto:info@findwise.com" class="u-secondary-text-color">info@findwise.com</a>
+
+
+                <a href="tel:%2B45%202810%205862" class="u-secondary-text-color">+45 2810 5862</a>
+
+              </p>
+            </div>
+          </address>
+
+        </div>
+
+        <div class="office-info " data-office-id="13679"  data-lat="60.16985569999999" data-long="24.938379" >
+
+          <address class="no-location-images">
+            <div class="address-wrapper">
+
+                <div class="js-location-dropdown-placeholder" data-location-name="Helsinki">
+                  <h2 class="u-secondary-text-color">Helsinki</h2>
+                </div>
+
+              <p class="u-text--small u-secondary-text-color">
+                <br/>
+                 Helsinki
+
+                  <a class="link-directions u-secondary-text-color" href="https://www.google.com/maps/dir//Helsinki,Finland" target="_blank"> Directions</a>
+
+
+
+              </p>
+            </div>
+          </address>
+
+        </div>
+
+        <div class="office-info " data-office-id="55324"  data-lat="50.8660773" data-long="20.628567599999997" >
+
+          <address class="no-location-images">
+            <div class="address-wrapper">
+
+                <div class="js-location-dropdown-placeholder" data-location-name="Kielce">
+                  <h2 class="u-secondary-text-color">Kielce</h2>
+                </div>
+
+              <p class="u-text--small u-secondary-text-color">
+                <br/>
+                26 Kielce
+
+                  <a class="link-directions u-secondary-text-color" href="https://www.google.com/maps/dir//Kielce,Poland" target="_blank"> Directions</a>
+
+
+
+              </p>
+            </div>
+          </address>
+
+        </div>
+
+        <div class="office-info " data-office-id="55093"  data-lat="52.5390795" data-long="19.7454295" >
+
+          <address class="no-location-images">
+            <div class="address-wrapper">
+
+                <div class="js-location-dropdown-placeholder" data-location-name="Płock">
+                  <h2 class="u-secondary-text-color">Płock</h2>
+                </div>
+
+              <p class="u-text--small u-secondary-text-color">
+                Zbożowa 7<br/>
+                09-410 Płock
+
+                  <a class="link-directions u-secondary-text-color" href="https://maps.google.com?daddr=52.5390795,19.7454295" target="_blank"> Directions</a>
+
+
+                <a href="mailto:tomasz.sobczak@findwise.com" class="u-secondary-text-color">tomasz.sobczak@findwise.com</a>
+
+
+              </p>
+            </div>
+          </address>
+
+        </div>
+
+        <div class="office-info " data-office-id="559"  data-lat="59.3361311" data-long="18.0671147" >
+
+          <address class="no-location-images">
+            <div class="address-wrapper">
+
+                <div class="js-location-dropdown-placeholder" data-location-name="Stockholm">
+                  <h2 class="u-secondary-text-color">Stockholm</h2>
+                </div>
+
+              <p class="u-text--small u-secondary-text-color">
+                Kungsgatan 24<br/>
+                111 35 Stockholm
+
+                  <a class="link-directions u-secondary-text-color" href="https://maps.google.com?daddr=59.3361311,18.0671147" target="_blank"> Directions</a>
+
+
+                <a href="mailto:info@findwise.com" class="u-secondary-text-color">info@findwise.com</a>
+
+
+                <a href="tel:%2B46709325299" class="u-secondary-text-color">+46709325299</a>
+
+              </p>
+            </div>
+          </address>
+
+        </div>
+
+        <div class="office-info " data-office-id="560"  data-lat="52.231277" data-long="21.0142893" >
+
+          <address class="">
+            <div class="address-wrapper">
+
+                <div class="js-location-dropdown-placeholder" data-location-name="Warszawa">
+                  <h2 class="u-secondary-text-color">Warszawa</h2>
+                </div>
+
+              <p class="u-text--small u-secondary-text-color">
+                Widok 16 lok. 3<br/>
+                00-023 Warszawa
+
+                  <a class="link-directions u-secondary-text-color" href="https://maps.google.com?daddr=52.231277,21.0142893" target="_blank"> Directions</a>
+
+
+                <a href="mailto:tomasz.sobczak@findwise.com" class="u-secondary-text-color">tomasz.sobczak@findwise.com</a>
+
+
+                <a href="tel:%2B48%20601%20193%20920" class="u-secondary-text-color">+48 601 193 920</a>
+
+              </p>
+            </div>
+          </address>
+
+            <div class="pictures">
+
+                <a href="https://res.cloudinary.com/teamtailor/image/upload/c_fit,f_auto,h_500,q_80,w_800/v1489178483/yt1vtxbysabbgcdk5zzf.jpg" class="thumbnail-hover lightbox" title="" rel="location-560">
+                  <div data-src="https://res.cloudinary.com/teamtailor/image/upload/ar_3:2,c_lfill,dpr_2,f_auto,g_faces:center,q_80,w_256/v1489178483/yt1vtxbysabbgcdk5zzf.jpg" class="img lazy"></div>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div id="map" class=" u-section-block-fill"></div>
+  </section>
+
+
+
+
+
+
+    <footer id="footer" class="site-footer" data-section-route="footer">
+      <div class="company u-tertiary-background-color">
+
+          <section class="section-block text-section u-primary-text-color">
+            <div class="wrapper">
+              <div class="text-section-inner">
+                <h2 class="u-primary-text-color">About Findwise</h2>
+                <p>Findwise adds business value to organisations where information is a priority by delivering business-critical solutions and search applications. Put briefly, we help companies find, analyse and act on information.</p><p>After 10 years of consultancy, research and development, we can proudly say that we are global experts in solving Information challenges, delivering Enterprise Search, website search, search based applicationes etc - at more than 450 clients and in over 1 700 successfully tailor-made projects.</p><p>Specialising in handling unstructured data we can help you to use any data in your business analysis. No matter what industry or department, you can rely on business-critical solutions that transforms information into valuable knowledge<br></p>
+              </div>
+            </div>
+          </section>
+
+
+
+          <section class="about__numbers  u-margin-top ">
+            <div class="wrapper">
+              <div class="about-inner__numbers">
+                <ul>
+                  <li>
+
+                      <a class="website u-link-color" href="http://www.findwise.com">findwise.com</a>
+
+                  </li>
+
+                    <li class="u-primary-text-color">
+                      Coworkers <strong class="u-primary-text-color">120</strong>
+                    </li>
+
+
+                    <li class="u-primary-text-color">
+                      Founded in <strong class="u-primary-text-color">2005</strong>
+                    </li>
+
+
+                    <li class="u-primary-text-color">
+                      Turnover <strong class="u-primary-text-color">+ 100 million SEK</strong>
+                    </li>
+
+                </ul>
+              </div>
+            </div>
+          </section>
+
+      </div>
+
+      <section class="sitemap">
+        <div class="wrapper">
+          <div class="sitemap-inner">
+            <div class="links">
+              <h3 class="u-primary-text-color">Career site</h3>
+              <ul>
+                <li  class="active" ><a href="/" class="u-link-color">Start</a></li>
+
+
+                  <li >
+                    <a href="/people" class="u-link-color">
+                      People
+                    </a>
+                  </li>
+
+
+                  <li >
+                    <a href="/jobs" class="u-link-color">
+                      Jobs
+                    </a>
+                  </li>
+
+
+                  <li >
+                    <a href="/blog" class="u-link-color">
+                      Find out more about Findwise
+                    </a>
+                  </li>
+
+              </ul>
+            </div>
+
+
+
+
+
+             <div class="links">
+              <h3 class="u-primary-text-color">Users</h3>
+              <ul>
+
+                  <li><a href="https://findwise.teamtailor.com/connect/login" class="u-link-color">Candidate login</a></li>
+
+
+
+                  <li><a href="https://app.teamtailor.com/companies/PguOqvgbf1U/dashboard" class="u-link-color">Employee login</a></li>
+
+
+
+                <li><a href="/data_privacy">Data & privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <a class="to-top u-link-color" href="#top">
+        <span aria-hidden="true" class="arrow u-link-color"></span>
+        <span class="u-screen-reader-text">Scroll to top</span>
+      </a>
+    </footer>
+  </div>
+
+
+    <section class="c-employee-referral ">
+      <div class="wrapper u-primary-background-color">
+        <div class="c-employee-referral__body">
+          <div class="c-employee-referral__copy">
+            <h2 class="c-employee-referral__title">Already working at Findwise?</h2>
+            <p class="c-employee-referral__sub-title">Let’s recruit together and find your next colleague.</p>
+          </div>
+
+          <div class="c-employee-referral__form">
+            <form method="post" action="https://findwise.teamtailor.com/auto_join" class="filter row">
+
+
+                  <div class="fake-input-row">
+                    <div class="form__field">
+                      <input type="hidden" name="domain" id="domain" value="findwise.com" />
+                      <input type="hidden" name="email" id="email" />
+                      <div class="fake__item fake__input" data-placeholder="email" spellcheck=false contenteditable=true>email</div>
+                      <div class="fake__item fake__input-after">@findwise.com</div>
+                    </div>
+                  </div>
+
+
+              <button class="btn c-employee-referral__button tt-button--filled u-primary-button-text-color u-primary-button-background-color"
+                data-event-tracking="click"
+                data-event-category="Account"
+                data-event-name="Auto Joined: Create"
+                data-event-label="Click"
+              >
+                Log in
+              </button>
+            </form>
+          </div>
+
+
+
+               <ul class="c-employee-referral__face-list">
+
+                 <li class="c-employee-referral__face-list-item">
+                   <img class="lazy c-employee-referral__face-list-image" title="Andreas Franzon" alt="Andreas Franzon" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_71,q_80,w_71/v1418376537/s1agkayqrnhx2iiqq6q7.jpg">
+                 </li>
+
+                 <li class="c-employee-referral__face-list-item">
+                   <img class="lazy c-employee-referral__face-list-image" title="Andreas Salomonsson" alt="Andreas Salomonsson" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_71,q_80,w_71/v1429121356/l5dypfbsqduxwhod894v.jpg">
+                 </li>
+
+                 <li class="c-employee-referral__face-list-item">
+                   <img class="lazy c-employee-referral__face-list-image" title="Artur Nowosielski" alt="Artur Nowosielski" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_71,q_80,w_71/v1540552333/kfhblya4us3i13v2upzg.jpg">
+                 </li>
+
+                 <li class="c-employee-referral__face-list-item">
+                   <img class="lazy c-employee-referral__face-list-image" title="Artur Szkopek" alt="Artur Szkopek" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_71,q_80,w_71/v1548252432/vvoxrk5zumms4vnh1ykz.jpg">
+                 </li>
+
+                 <li class="c-employee-referral__face-list-item">
+                   <img class="lazy c-employee-referral__face-list-image" title="Behnam Safakhah" alt="Behnam Safakhah" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_71,q_80,w_71/v1433316000/uqt1yzzbkiku8czdvh1x.jpg">
+                 </li>
+
+                 <li class="c-employee-referral__face-list-item">
+                   <img class="lazy c-employee-referral__face-list-image" title="Carl Björnfors" alt="Carl Björnfors" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_71,q_80,w_71/v1418376521/cq5p26y52btknkejfxwb.jpg">
+                 </li>
+
+                 <li class="c-employee-referral__face-list-item">
+                   <img class="lazy c-employee-referral__face-list-image" title="Emilie Nordfält" alt="Emilie Nordfält" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_71,q_80,w_71/v1443447959/auwodn2nzn1wiyhdr397.jpg">
+                 </li>
+
+                 <li class="c-employee-referral__face-list-item">
+                   <img class="lazy c-employee-referral__face-list-image" title="Emil Mauritzson" alt="Emil Mauritzson" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_71,q_80,w_71/v1432107700/xkhu9wtnwnfkv0owqyep.jpg">
+                 </li>
+
+                 <li class="c-employee-referral__face-list-item">
+                   <img class="lazy c-employee-referral__face-list-image" title="Erik Bladh" alt="Erik Bladh" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_71,q_80,w_71/v1456409563/htjd6wjtdyjouo5rmgcy.jpg">
+                 </li>
+
+                 <li class="c-employee-referral__face-list-item">
+                   <img class="lazy c-employee-referral__face-list-image" title="Frederik Rasmussen" alt="Frederik Rasmussen" data-src="https://res.cloudinary.com/teamtailor/image/upload/c_fill,dpr_2.0,f_auto,g_faces:center,h_71,q_80,w_71/v1550137019/bfujulvz8icjebho9nya.jpg">
+                 </li>
+
+               </ul>
+
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <div class="teamtailor" style="display: block !important; visibility: visible !important;">
+  <div class="teamtailor-wrapper" style="display: inline-block !important; visibility: visible !important;">
+    <a class="top" href="http://www.teamtailor.com/?utm_source=career.findwise.com&utm_medium=web&utm_content=logolink&utm_campaign=poweredby">
+      <img class="lazy" data-src="https://assets.cdn.teamtailor.com/assets/tt-logo-footer@2x-33b054916f0acc676104e22eb34f18485d1073c8e54f37aa9246fc75bb7ac34d.png" alt="Teamtailor">
+    </a>
+    <p>
+
+        <a href="http://www.teamtailor.com/?utm_source=career.findwise.com&utm_medium=web&utm_content=textlink&utm_campaign=poweredby&utm_term=career_site" title="Read more at Teamtailor.com" target="_blank">Career site</a> by Teamtailor
+
+    </p>
+  </div>
+</div>
+
+
+
+  <script src="https://assets.cdn.teamtailor.com/assets/jobsite/jobsite-ef34841f62839940af87dcde2791e042a75a11f55c594e289094f653dcdcf6cf.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    $('#messenger-frame').load(function() {
+      var payload = {};
+
+
+      this.contentWindow.postMessage(payload, '*');
+    });
+  </script>
+</body>
+</html>

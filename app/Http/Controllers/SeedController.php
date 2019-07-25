@@ -29,15 +29,6 @@ class SeedController extends Controller
       return view($this->baseView.'index', ['seed' => Seed::paginate(10)]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -123,7 +114,7 @@ class SeedController extends Controller
 
         $host = $hl['domain'][0];
         $d = $rules->resolve($host);
-        if(!$d->isKnown() || !$d->isICANN() || !$d->isResolvable()){
+        if(!$d->isKnown() && !$d->isICANN() && !$d->isResolvable()){
           continue;
         }
         $record[] = ['domain' => $d->getRegistrableDomain(), 'orignal_url' => $d->getContent()];
@@ -228,15 +219,5 @@ class SeedController extends Controller
     // echo "</pre>";
 
     //test CURL
-    // $curl = new Curl();
-    // $curl->setOpt(CURLOPT_FOLLOWLOCATION, true);
-    // $curl->get('http://'.$d->getContent());
-    // echo "domain: ". $d->getContent();
-    // echo "<br />";
-    // echo "url: ".$curl->getUrl();
-    // echo "<pre>";
-    // print_r($curl->getInfo());
-    // echo "<br />";
-    // print_r($curl->getRequestHeaders());
-    // echo "</pre>";
+
 }

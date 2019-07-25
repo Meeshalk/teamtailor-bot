@@ -42,10 +42,6 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
-        'a' => 
-        array (
-            'anlutro\\cURL\\' => 13,
-        ),
         'Z' => 
         array (
             'Zend\\Diactoros\\' => 15,
@@ -83,6 +79,7 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
             'Symfony\\Component\\HttpKernel\\' => 29,
             'Symfony\\Component\\HttpFoundation\\' => 33,
             'Symfony\\Component\\Finder\\' => 25,
+            'Symfony\\Component\\Filesystem\\' => 29,
             'Symfony\\Component\\EventDispatcher\\' => 34,
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
@@ -139,6 +136,7 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
             'Http\\Promise\\' => 13,
             'Http\\Client\\' => 12,
             'Http\\Adapter\\Guzzle6\\' => 21,
+            'HeadlessChromium\\' => 17,
         ),
         'G' => 
         array (
@@ -175,6 +173,7 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'A' => 
         array (
             'App\\' => 4,
+            'Apix\\Log\\' => 9,
         ),
     );
 
@@ -184,10 +183,6 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-        ),
-        'anlutro\\cURL\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/anlutro/curl/src',
         ),
         'Zend\\Diactoros\\' => 
         array (
@@ -280,6 +275,10 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'Symfony\\Component\\Finder\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/finder',
+        ),
+        'Symfony\\Component\\Filesystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/filesystem',
         ),
         'Symfony\\Component\\EventDispatcher\\' => 
         array (
@@ -399,6 +398,10 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         array (
             0 => __DIR__ . '/..' . '/php-http/guzzle6-adapter/src',
         ),
+        'HeadlessChromium\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chrome-php/chrome/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -459,6 +462,10 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'Apix\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/apix/log/src',
+        ),
     );
 
     public static $fallbackDirsPsr4 = array (
@@ -466,6 +473,13 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
     );
 
     public static $prefixesPsr0 = array (
+        'W' => 
+        array (
+            'Wrench' => 
+            array (
+                0 => __DIR__ . '/..' . '/wrench/wrench/lib',
+            ),
+        ),
         'U' => 
         array (
             'UpdateHelper\\' => 
@@ -487,9 +501,30 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
             ),
         ),
+        'E' => 
+        array (
+            'Evenement' => 
+            array (
+                0 => __DIR__ . '/..' . '/evenement/evenement/src',
+            ),
+        ),
     );
 
     public static $classMap = array (
+        'Apix\\Log\\Exception' => __DIR__ . '/..' . '/apix/log/src/Exception.php',
+        'Apix\\Log\\LogEntry' => __DIR__ . '/..' . '/apix/log/src/LogEntry.php',
+        'Apix\\Log\\LogFormatter' => __DIR__ . '/..' . '/apix/log/src/LogFormatter.php',
+        'Apix\\Log\\LogFormatterInterface' => __DIR__ . '/..' . '/apix/log/src/LogFormatterInterface.php',
+        'Apix\\Log\\Logger' => __DIR__ . '/..' . '/apix/log/src/Logger.php',
+        'Apix\\Log\\Logger\\AbstractLogger' => __DIR__ . '/..' . '/apix/log/src/Logger/AbstractLogger.php',
+        'Apix\\Log\\Logger\\ErrorLog' => __DIR__ . '/..' . '/apix/log/src/Logger/ErrorLog.php',
+        'Apix\\Log\\Logger\\File' => __DIR__ . '/..' . '/apix/log/src/Logger/File.php',
+        'Apix\\Log\\Logger\\LoggerInterface' => __DIR__ . '/..' . '/apix/log/src/Logger/LoggerInterface.php',
+        'Apix\\Log\\Logger\\Mail' => __DIR__ . '/..' . '/apix/log/src/Logger/Mail.php',
+        'Apix\\Log\\Logger\\Nil' => __DIR__ . '/..' . '/apix/log/src/Logger/Nil.php',
+        'Apix\\Log\\Logger\\Runtime' => __DIR__ . '/..' . '/apix/log/src/Logger/Runtime.php',
+        'Apix\\Log\\Logger\\Sapi' => __DIR__ . '/..' . '/apix/log/src/Logger/Sapi.php',
+        'Apix\\Log\\Logger\\Stream' => __DIR__ . '/..' . '/apix/log/src/Logger/Stream.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Domain' => __DIR__ . '/../..' . '/app/Domain.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -498,6 +533,7 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\BotController' => __DIR__ . '/../..' . '/app/Http/Controllers/BotController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DomainController' => __DIR__ . '/../..' . '/app/Http/Controllers/DomainController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
@@ -650,6 +686,9 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'Egulias\\EmailValidator\\Warning\\QuotedString' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/QuotedString.php',
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/Warning.php',
+        'Evenement\\EventEmitter' => __DIR__ . '/..' . '/evenement/evenement/src/Evenement/EventEmitter.php',
+        'Evenement\\EventEmitterInterface' => __DIR__ . '/..' . '/evenement/evenement/src/Evenement/EventEmitterInterface.php',
+        'Evenement\\EventEmitterTrait' => __DIR__ . '/..' . '/evenement/evenement/src/Evenement/EventEmitterTrait.php',
         'Faker\\Calculator\\Iban' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Iban.php',
         'Faker\\Calculator\\Inn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Inn.php',
         'Faker\\Calculator\\Luhn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Luhn.php',
@@ -1233,6 +1272,50 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'HeadlessChromium\\Browser' => __DIR__ . '/..' . '/chrome-php/chrome/src/Browser.php',
+        'HeadlessChromium\\BrowserFactory' => __DIR__ . '/..' . '/chrome-php/chrome/src/BrowserFactory.php',
+        'HeadlessChromium\\Browser\\BrowserProcess' => __DIR__ . '/..' . '/chrome-php/chrome/src/Browser/BrowserProcess.php',
+        'HeadlessChromium\\Browser\\ProcessAwareBrowser' => __DIR__ . '/..' . '/chrome-php/chrome/src/Browser/ProcessAwareBrowser.php',
+        'HeadlessChromium\\Clip' => __DIR__ . '/..' . '/chrome-php/chrome/src/Clip.php',
+        'HeadlessChromium\\Communication\\Connection' => __DIR__ . '/..' . '/chrome-php/chrome/src/Communication/Connection.php',
+        'HeadlessChromium\\Communication\\Message' => __DIR__ . '/..' . '/chrome-php/chrome/src/Communication/Message.php',
+        'HeadlessChromium\\Communication\\Response' => __DIR__ . '/..' . '/chrome-php/chrome/src/Communication/Response.php',
+        'HeadlessChromium\\Communication\\ResponseReader' => __DIR__ . '/..' . '/chrome-php/chrome/src/Communication/ResponseReader.php',
+        'HeadlessChromium\\Communication\\Session' => __DIR__ . '/..' . '/chrome-php/chrome/src/Communication/Session.php',
+        'HeadlessChromium\\Communication\\SessionResponseReader' => __DIR__ . '/..' . '/chrome-php/chrome/src/Communication/SessionResponseReader.php',
+        'HeadlessChromium\\Communication\\Socket\\MockSocket' => __DIR__ . '/..' . '/chrome-php/chrome/src/Communication/Socket/MockSocket.php',
+        'HeadlessChromium\\Communication\\Socket\\SocketInterface' => __DIR__ . '/..' . '/chrome-php/chrome/src/Communication/Socket/SocketInterface.php',
+        'HeadlessChromium\\Communication\\Socket\\Wrench' => __DIR__ . '/..' . '/chrome-php/chrome/src/Communication/Socket/Wrench.php',
+        'HeadlessChromium\\Communication\\Target' => __DIR__ . '/..' . '/chrome-php/chrome/src/Communication/Target.php',
+        'HeadlessChromium\\Cookies\\Cookie' => __DIR__ . '/..' . '/chrome-php/chrome/src/Cookies/Cookie.php',
+        'HeadlessChromium\\Cookies\\CookiesCollection' => __DIR__ . '/..' . '/chrome-php/chrome/src/Cookies/CookiesCollection.php',
+        'HeadlessChromium\\Exception\\BrowserConnectionFailed' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/BrowserConnectionFailed.php',
+        'HeadlessChromium\\Exception\\CommunicationException' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/CommunicationException.php',
+        'HeadlessChromium\\Exception\\CommunicationException\\CannotReadResponse' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/CommunicationException/CannotReadResponse.php',
+        'HeadlessChromium\\Exception\\CommunicationException\\InvalidResponse' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/CommunicationException/InvalidResponse.php',
+        'HeadlessChromium\\Exception\\CommunicationException\\ResponseHasError' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/CommunicationException/ResponseHasError.php',
+        'HeadlessChromium\\Exception\\EvaluationFailed' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/EvaluationFailed.php',
+        'HeadlessChromium\\Exception\\FilesystemException' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/FilesystemException.php',
+        'HeadlessChromium\\Exception\\JavascriptException' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/JavascriptException.php',
+        'HeadlessChromium\\Exception\\NavigationExpired' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/NavigationExpired.php',
+        'HeadlessChromium\\Exception\\NoResponseAvailable' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/NoResponseAvailable.php',
+        'HeadlessChromium\\Exception\\OperationTimedOut' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/OperationTimedOut.php',
+        'HeadlessChromium\\Exception\\PdfFailed' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/PdfFailed.php',
+        'HeadlessChromium\\Exception\\ScreenshotFailed' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/ScreenshotFailed.php',
+        'HeadlessChromium\\Exception\\TargetDestroyed' => __DIR__ . '/..' . '/chrome-php/chrome/src/Exception/TargetDestroyed.php',
+        'HeadlessChromium\\Frame' => __DIR__ . '/..' . '/chrome-php/chrome/src/Frame.php',
+        'HeadlessChromium\\FrameManager' => __DIR__ . '/..' . '/chrome-php/chrome/src/FrameManager.php',
+        'HeadlessChromium\\Input\\Mouse' => __DIR__ . '/..' . '/chrome-php/chrome/src/Input/Mouse.php',
+        'HeadlessChromium\\Page' => __DIR__ . '/..' . '/chrome-php/chrome/src/Page.php',
+        'HeadlessChromium\\PageUtils\\AbstractBinaryInput' => __DIR__ . '/..' . '/chrome-php/chrome/src/PageUtils/AbstractBinaryInput.php',
+        'HeadlessChromium\\PageUtils\\CookiesGetter' => __DIR__ . '/..' . '/chrome-php/chrome/src/PageUtils/CookiesGetter.php',
+        'HeadlessChromium\\PageUtils\\PageEvaluation' => __DIR__ . '/..' . '/chrome-php/chrome/src/PageUtils/PageEvaluation.php',
+        'HeadlessChromium\\PageUtils\\PageLayoutMetrics' => __DIR__ . '/..' . '/chrome-php/chrome/src/PageUtils/PageLayoutMetrics.php',
+        'HeadlessChromium\\PageUtils\\PageNavigation' => __DIR__ . '/..' . '/chrome-php/chrome/src/PageUtils/PageNavigation.php',
+        'HeadlessChromium\\PageUtils\\PagePdf' => __DIR__ . '/..' . '/chrome-php/chrome/src/PageUtils/PagePdf.php',
+        'HeadlessChromium\\PageUtils\\PageScreenshot' => __DIR__ . '/..' . '/chrome-php/chrome/src/PageUtils/PageScreenshot.php',
+        'HeadlessChromium\\PageUtils\\ResponseWaiter' => __DIR__ . '/..' . '/chrome-php/chrome/src/PageUtils/ResponseWaiter.php',
+        'HeadlessChromium\\Utils' => __DIR__ . '/..' . '/chrome-php/chrome/src/Utils.php',
         'Http\\Adapter\\Guzzle6\\Client' => __DIR__ . '/..' . '/php-http/guzzle6-adapter/src/Client.php',
         'Http\\Adapter\\Guzzle6\\Promise' => __DIR__ . '/..' . '/php-http/guzzle6-adapter/src/Promise.php',
         'Http\\Client\\Exception' => __DIR__ . '/..' . '/php-http/httplug/src/Exception.php',
@@ -3760,6 +3843,12 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'Symfony\\Component\\EventDispatcher\\ImmutableEventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/ImmutableEventDispatcher.php',
         'Symfony\\Component\\EventDispatcher\\LegacyEventDispatcherProxy' => __DIR__ . '/..' . '/symfony/event-dispatcher/LegacyEventDispatcherProxy.php',
         'Symfony\\Component\\EventDispatcher\\LegacyEventProxy' => __DIR__ . '/..' . '/symfony/event-dispatcher/LegacyEventProxy.php',
+        'Symfony\\Component\\Filesystem\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/filesystem/Exception/ExceptionInterface.php',
+        'Symfony\\Component\\Filesystem\\Exception\\FileNotFoundException' => __DIR__ . '/..' . '/symfony/filesystem/Exception/FileNotFoundException.php',
+        'Symfony\\Component\\Filesystem\\Exception\\IOException' => __DIR__ . '/..' . '/symfony/filesystem/Exception/IOException.php',
+        'Symfony\\Component\\Filesystem\\Exception\\IOExceptionInterface' => __DIR__ . '/..' . '/symfony/filesystem/Exception/IOExceptionInterface.php',
+        'Symfony\\Component\\Filesystem\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/filesystem/Exception/InvalidArgumentException.php',
+        'Symfony\\Component\\Filesystem\\Filesystem' => __DIR__ . '/..' . '/symfony/filesystem/Filesystem.php',
         'Symfony\\Component\\Finder\\Comparator\\Comparator' => __DIR__ . '/..' . '/symfony/finder/Comparator/Comparator.php',
         'Symfony\\Component\\Finder\\Comparator\\DateComparator' => __DIR__ . '/..' . '/symfony/finder/Comparator/DateComparator.php',
         'Symfony\\Component\\Finder\\Comparator\\NumberComparator' => __DIR__ . '/..' . '/symfony/finder/Comparator/NumberComparator.php',
@@ -4324,6 +4413,69 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'Wrench\\Application\\Application' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Application/Application.php',
+        'Wrench\\Application\\EchoApplication' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Application/EchoApplication.php',
+        'Wrench\\Application\\ServerTimeApplication' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Application/ServerTimeApplication.php',
+        'Wrench\\BasicServer' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/BasicServer.php',
+        'Wrench\\Client' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Client.php',
+        'Wrench\\Connection' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Connection.php',
+        'Wrench\\ConnectionManager' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/ConnectionManager.php',
+        'Wrench\\Exception\\BadRequestException' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Exception/BadRequestException.php',
+        'Wrench\\Exception\\CloseException' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Exception/CloseException.php',
+        'Wrench\\Exception\\ConnectionException' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Exception/ConnectionException.php',
+        'Wrench\\Exception\\Exception' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Exception/Exception.php',
+        'Wrench\\Exception\\FrameException' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Exception/FrameException.php',
+        'Wrench\\Exception\\HandshakeException' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Exception/HandshakeException.php',
+        'Wrench\\Exception\\InvalidOriginException' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Exception/InvalidOriginException.php',
+        'Wrench\\Exception\\PayloadException' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Exception/PayloadException.php',
+        'Wrench\\Exception\\RateLimiterException' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Exception/RateLimiterException.php',
+        'Wrench\\Exception\\SocketException' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Exception/SocketException.php',
+        'Wrench\\Frame\\Frame' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Frame/Frame.php',
+        'Wrench\\Frame\\HybiFrame' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Frame/HybiFrame.php',
+        'Wrench\\Listener\\HandshakeRequestListener' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Listener/HandshakeRequestListener.php',
+        'Wrench\\Listener\\Listener' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Listener/Listener.php',
+        'Wrench\\Listener\\OriginPolicy' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Listener/OriginPolicy.php',
+        'Wrench\\Listener\\RateLimiter' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Listener/RateLimiter.php',
+        'Wrench\\Payload\\HybiPayload' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Payload/HybiPayload.php',
+        'Wrench\\Payload\\Payload' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Payload/Payload.php',
+        'Wrench\\Payload\\PayloadHandler' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Payload/PayloadHandler.php',
+        'Wrench\\Protocol\\Hybi10Protocol' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Protocol/Hybi10Protocol.php',
+        'Wrench\\Protocol\\HybiProtocol' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Protocol/HybiProtocol.php',
+        'Wrench\\Protocol\\Protocol' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Protocol/Protocol.php',
+        'Wrench\\Protocol\\Rfc6455Protocol' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Protocol/Rfc6455Protocol.php',
+        'Wrench\\Resource' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Resource.php',
+        'Wrench\\Server' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Server.php',
+        'Wrench\\Socket\\ClientSocket' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Socket/ClientSocket.php',
+        'Wrench\\Socket\\ServerClientSocket' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Socket/ServerClientSocket.php',
+        'Wrench\\Socket\\ServerSocket' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Socket/ServerSocket.php',
+        'Wrench\\Socket\\Socket' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Socket/Socket.php',
+        'Wrench\\Socket\\UriSocket' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Socket/UriSocket.php',
+        'Wrench\\Tests\\Application\\EchoApplicationTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Application/EchoApplicationTest.php',
+        'Wrench\\Tests\\BasicServerTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/BasicServerTest.php',
+        'Wrench\\Tests\\ClientTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/ClientTest.php',
+        'Wrench\\Tests\\ConnectionManagerTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/ConnectionManagerTest.php',
+        'Wrench\\Tests\\ConnectionTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/ConnectionTest.php',
+        'Wrench\\Tests\\Frame\\BadSubclassFrame' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Frame/BaseSubclassFrameTest.php',
+        'Wrench\\Tests\\Frame\\BadSubclassFrameTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Frame/BaseSubclassFrameTest.php',
+        'Wrench\\Tests\\Frame\\FrameTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Frame/FrameTest.php',
+        'Wrench\\Tests\\Frame\\HybiFrameTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Frame/HybiFrameTest.php',
+        'Wrench\\Tests\\Listener\\ListenerTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Listener/ListenerTest.php',
+        'Wrench\\Tests\\Listener\\OriginPolicyTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Listener/OriginPolicyTest.php',
+        'Wrench\\Tests\\Listener\\RateLimiterTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Listener/RateLimiterTest.php',
+        'Wrench\\Tests\\Payload\\PayloadTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Payload/PayloadTest.php',
+        'Wrench\\Tests\\Protocol\\HybiPayloadTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Payload/HybiPayloadTest.php',
+        'Wrench\\Tests\\Protocol\\ProtocolTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Protocol/ProtocolTest.php',
+        'Wrench\\Tests\\Protocol\\Rfc6455ProtocolTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Protocol/Rfc6455ProtocolTest.php',
+        'Wrench\\Tests\\ServerTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/ServerTest.php',
+        'Wrench\\Tests\\ServerTestHelper' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/ServerTestHelper.php',
+        'Wrench\\Tests\\Socket\\ClientSocketTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Socket/ClientSocketTest.php',
+        'Wrench\\Tests\\Socket\\ServerClientSocketTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Socket/ServerClientSocketTest.php',
+        'Wrench\\Tests\\Socket\\ServerSocketTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Socket/ServerSocketTest.php',
+        'Wrench\\Tests\\Socket\\SocketTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Socket/SocketTest.php',
+        'Wrench\\Tests\\Socket\\UriSocketTest' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Socket/UriSocketTest.php',
+        'Wrench\\Tests\\Test' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Tests/Test.php',
+        'Wrench\\Util\\Configurable' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Util/Configurable.php',
+        'Wrench\\Util\\Ssl' => __DIR__ . '/..' . '/wrench/wrench/lib/Wrench/Util/Ssl.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
         'Zend\\Diactoros\\AbstractSerializer' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/AbstractSerializer.php',
         'Zend\\Diactoros\\CallbackStream' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/CallbackStream.php',
@@ -4368,11 +4520,6 @@ class ComposerStaticInit5197098b1f9297d159efab8e476fade4
         'Zend\\Diactoros\\UploadedFileFactory' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/UploadedFileFactory.php',
         'Zend\\Diactoros\\Uri' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/Uri.php',
         'Zend\\Diactoros\\UriFactory' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/UriFactory.php',
-        'anlutro\\cURL\\Laravel\\cURL' => __DIR__ . '/..' . '/anlutro/curl/src/Laravel/cURL.php',
-        'anlutro\\cURL\\Request' => __DIR__ . '/..' . '/anlutro/curl/src/Request.php',
-        'anlutro\\cURL\\Response' => __DIR__ . '/..' . '/anlutro/curl/src/Response.php',
-        'anlutro\\cURL\\cURL' => __DIR__ . '/..' . '/anlutro/curl/src/cURL.php',
-        'anlutro\\cURL\\cURLException' => __DIR__ . '/..' . '/anlutro/curl/src/cURLException.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',

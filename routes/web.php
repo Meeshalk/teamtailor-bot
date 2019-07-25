@@ -28,9 +28,13 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 	//domain routes
 	Route::get('/domain', 'DomainController@index')->name('domain');
 	Route::get('/domain/{id}', 'DomainController@show')->name('domain.show');
-	Route::post('/domain/store', 'DomainController@store')->name('domain.store');
-	Route::delete('/domain/delete/{id}', 'DomainController@destroy')->name('domain.delete');
+	// Route::post('/domain/store', 'DomainController@store')->name('domain.store');
+	// Route::delete('/domain/delete/{id}', 'DomainController@destroy')->name('domain.delete');
 	Route::post('/domain/process/chunk/', 'DomainController@process')->name('domain.process.chunk');
+
+
+	//test
+	Route::get('/test/{domain}', 'DomainController@findJobsPage')->name('domain.test');
 
 
 	//instructions

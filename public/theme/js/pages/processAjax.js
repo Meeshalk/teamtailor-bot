@@ -1,8 +1,7 @@
 $(document).ready(function(){
-
-  $('.model-global').on('hidden.bs.modal', function () {
-    truelocation.reload();
-  });
+  // $('.model-global').on('hidden.bs.modal', function () {
+  //   location.reload();
+  // });
 
   $('#domainProcess').submit(function(e){
     e.preventDefault();
@@ -33,7 +32,7 @@ $(document).ready(function(){
         addModalContent('Success!', '<strong><span class="text-green">Success: All the domains are processed, do you want to see the results?</span></strong>', isHtml = true, m = "",
         btn ='<a href="/seed/'+r.seedId+'" class="btn btn-success">Yes</a><button type="button" class="btn btn-default" data-dismiss="modal">Close</button>');
         $('.model-global').modal('show');
-        disableForm(form.getAttribute('id'));
+        //disableForm(form.attr('id'));
       }
 
     }, form.attr('action'),
