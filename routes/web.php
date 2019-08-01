@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
 
 	//test
-	Route::get('/test/{domain}', 'DomainController@findJobsPage')->name('domain.test');
+	Route::get('/test/{domain}', 'DomainController@testFindJobsPage')->name('domain.test');
 
 
 	//instructions

@@ -222,14 +222,14 @@ function doAjaxChunked(retResult, url, type, data, step, steps, chunkSize){
       xhr.upload.addEventListener("progress", function(evt){
         if (evt.lengthComputable) {
           var percentComplete = (evt.loaded / evt.total)*100;
-          chunkProgress(percentComplete);
+          chunkProgress(randnum(60, 80));
         }
       }, false);
       //Download progress
       xhr.addEventListener("progress", function(evt){
         if (evt.lengthComputable) {
           var percentComplete = (evt.loaded / evt.total)*100;
-          chunkProgress(percentComplete);
+          chunkProgress(randnum(60, 80));
         }
       }, false);
       return xhr;
@@ -251,7 +251,7 @@ function doAjaxChunked(retResult, url, type, data, step, steps, chunkSize){
         formData.append('steps', r.steps);
         formData.append('current_step', r.currentStep);
         formData.append('seed_id', r.seedId);
-        mainProgress((100/r.steps)*r.currentStep);
+        mainProgress(rN((100/r.steps)*r.currentStep, 1));
         retResult(result);
         doAjaxChunked(function(result2){
           retResult(result2);
@@ -279,6 +279,29 @@ function buildFormdata(r){;
     formData.append(field.name, field.value);
   });
   return formData;
+}
+
+function rN(num, scale) {
+  if (Math.round(num) != num) {
+    if (Math.pow(0.1, scale) > num) {
+      return 0;
+    }
+    var sign = Math.sign(num);
+    var arr = ("" + Math.abs(num)).split(".");
+    if (arr.length > 1) {
+      if (arr[1].length > scale) {
+        var integ = +arr[0] * Math.pow(10, scale);
+        var dec = integ + (+arr[1].slice(0, scale) + Math.pow(10, scale));
+        var proc = +arr[1].slice(scale, scale + 1)
+        if (proc >= 5) {
+          dec = dec + 1;
+        }
+        dec = sign * (dec - Math.pow(10, scale)) / Math.pow(10, scale);
+        return dec;
+      }
+    }
+  }
+  return num;
 }
 
 

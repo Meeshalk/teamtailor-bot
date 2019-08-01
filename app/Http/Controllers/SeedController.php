@@ -108,7 +108,7 @@ class SeedController extends Controller
       $manager = new Manager(new Cache(), new CurlHttpClient());
       $rules = $manager->getRules();
       foreach ($domains as $dk => $domain) {
-        preg_match_all($this->urlPatt, $domain, $hl);
+        preg_match_all(config('teamtailor.patterns.domain'), $domain, $hl);
         if(empty($hl['domain'][0]))
           continue;
 
@@ -117,7 +117,7 @@ class SeedController extends Controller
         if(!$d->isKnown() && !$d->isICANN() && !$d->isResolvable()){
           continue;
         }
-        $record[] = ['domain' => $d->getRegistrableDomain(), 'orignal_url' => $d->getContent()];
+        $record[] = ['domain' => $d->getRegistrableDomain(), 'orignal_url' => $domain];
       }
 
 
@@ -177,7 +177,7 @@ class SeedController extends Controller
     public function show($id){
       try {
         $seed = Seed::findOrFail($id);
-        return view($this->baseView.'show', ['seed' => $seed, 'domain' => $seed->domains()->paginate(10)]);
+        return view($this->baseView.'show', ['seed' => $seed, 'domain' => $seed->domains()->paginate(30)]);
       } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
         abort(404, 'The seed domains does not exists. Resource not found.');
       }
