@@ -33,7 +33,7 @@
                         $jd = str_replace('https://', '', $jd);
                         $jd = substr_replace($jd, '', strpos($jd, '/'), strlen('/'));
                       @endphp
-                      <a href="{{$list->redirected_url}}" title="{{$list->redirected_url}}" target="_blank" class="btn">{{$jd}}</a>
+                      <a href="{{$list->redirected_url}}" title="{{$list->redirected_url}}" target="_blank">{{$jd}}</a>
                     @else
                       {{ '' }}
                     @endif
@@ -52,14 +52,17 @@
                        $jp = str_replace('http://', '', $jp);
                        $jp = str_replace('https://', '', $jp);
                      @endphp
-                     <a href="{{$list->job_page}}" title="{{$list->job_page}}" target="_blank" class="btn">{{$jp}}</a>
+                     <a href="{{$list->job_page}}" title="{{$list->job_page}}" target="_blank">{{$jp}}</a>
                    @else
                      {{ '' }}
                    @endif
                  </td>
                  <td>{{ $list->job_count }}</td>
                  <td>
-                   <a href="{{ route('domain.show', $list->id) }}" class="btn btn-success btn-xs mb5i">Jobs</a>
+                   @if (isset($list->job_count) && $list->job_count != 0)
+                     <a href="{{ route('domain.show', $list->id) }}" class="btn btn-success btn-xs mb5i">Jobs</a>
+                   @endif
+
                    {{-- @include('layouts.deleteForm', ['form' => ['route' => 'domain.delete', 'id' => $list->id, 'msg' => "Do you really want to delete this domain and all other related data, like jobs information and contact details etc.?"]]) --}}
                  </td>
                </tr>

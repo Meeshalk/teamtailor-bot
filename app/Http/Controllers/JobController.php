@@ -7,15 +7,17 @@ use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
+
+    protected $baseView = 'admin.jobs.';
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+     public function index(){
+       $job = Job::with('jobable')->paginate(10);
+       return view($this->baseView.'index', ['jobs' => $job]);
+     }
 
     /**
      * Show the form for creating a new resource.

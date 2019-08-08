@@ -10,6 +10,12 @@
     </li>
 
     <li class="">
+      <a href="{{ route('instructions') }}">
+        <i class="fa fa-info-circle"></i> <span>Instructions</span>
+      </a>
+    </li>
+
+    <li class="">
       <a href="{{ route('seed') }}">
         <i class="fa fa-list-ol"></i> <span>Seed</span>
       </a>
@@ -17,7 +23,13 @@
 
     <li class="">
       <a href="{{ route('domain') }}">
-        <i class="fa fa-barcode"></i> <span>Domains</span>
+        <i class="fa fa-globe"></i> <span>Domains</span>
+      </a>
+    </li>
+
+    <li class="">
+      <a href="{{ route('jobs') }}">
+        <i class="fa fa-briefcase"></i> <span>Jobs</span>
       </a>
     </li>
     {{-- <li class="treeview">

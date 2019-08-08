@@ -41,16 +41,12 @@ class BotController extends Controller
     if($stepOne !== false && is_array($stepOne))
       return $stepOne;
 
-
     $methodStr = $websiteType = '';
     $methodStr = 'No direct association with teamtailor';
     $websiteType = 'orignal company';
     $stepTwo = $this->linkCrawlerJobs($content, $methodStr, $websiteType, true);
     if($stepTwo['status'] != false)
       return $stepTwo;
-
-
-
 
     $content = '';
     if($stepTwo['status'] == false && isset($stepTwo['megaReturn']) && count($stepTwo['megaReturn']) > 0){
@@ -60,7 +56,6 @@ class BotController extends Controller
         $stepThree = $this->linkCrawlerJobs($content, $methodStr, $websiteType, $level2);
         if($stepThree['status'] != false)
           return $stepThree;
-
       }
     }
 
@@ -68,8 +63,173 @@ class BotController extends Controller
   }
 
 
-  public function getJobDetails($link){
+  public function getJobPageDetails($baseLink, $link){
+    $content = $this->getStatusAndContent($baseLink.$link, "curl");
+    if($content === false)
+      return false;
 
+    $filters = $this->jobPageFilters($content);
+    //echo "<pre>",print_r($filters),"</pre>";
+    $jobDetails = $this->jobDetails($content, $baseLink);
+    //echo "<pre>",print_r($jobDetails),"</pre>";
+    $return = array_merge($filters, $jobDetails);
+    if($jobDetails['job_count'] == 0 && !isset($jobDetails['jobs'])){
+      return $return;
+    }
+    $jobs = $jobDetails['jobs'];
+    preg_match(config('teamtailor.patterns.domain'), $content['info']['url'], $domainMatch);
+    $protocol = "http://";
+    if(isset($domainMatch['protocol']) && !empty($domainMatch['protocol']))
+      $protocol = $domainMatch['protocol'];
+    $base = $protocol.$domainMatch['domain'];
+    foreach ($jobs as $k => $job) {
+      preg_match(config('teamtailor.patterns.full_url'), $job['link'], $fullMatch);
+      if(isset($fullMatch['full_url']))
+        $contentJob = $this->getStatusAndContent($job['link'], "curl");
+      else
+        $contentJob = $this->getStatusAndContent($base.$job['link'], "curl");
+      if($contentJob === false){
+        $jobs[$k]['contact_person'] = "not found";
+        $jobs[$k]['contact_email'] = "not found";
+        $jobs[$k]['contact_tel'] = "not found";
+        continue;
+      }
+      $contactPerson = $this->evaluate($contentJob['content'], '//div[contains(concat(" ", normalize-space(@class), " "),"recruiter")]/a/@href');
+      $contactPersonName = $this->evaluate($contentJob['content'], '//div[contains(concat(" ", normalize-space(@class), " "),"name-and-title")]/div[contains(concat(" ", normalize-space(@class), " "),"name")]/text()');
+      if($contactPersonName->length == 1){
+        $contactPersonName = $contactPersonName->item(0)->textContent;
+      }
+      if($contactPerson->length <= 0){
+        $jobs[$k]['contact_person'] = "not found";
+        $jobs[$k]['contact_email'] = "not found";
+        $jobs[$k]['contact_tel'] = "not found";
+        continue;
+      }
+
+      $cPPageLink = $base.$contactPerson->item(0)->textContent;
+      $cPPage = $this->getStatusAndContent($cPPageLink, "curl");
+      if($cPPage === false){
+        $jobs[$k]['contact_person'] = "not found";
+        $jobs[$k]['contact_email'] = "not found";
+        $jobs[$k]['contact_tel'] = "not found";
+        continue;
+      }
+
+      $cPName = $this->evaluate($cPPage['content'], '//*[contains(concat(" ", normalize-space(@class), " "),"info")]/h1');
+      $cPEmail = $this->evaluate($cPPage['content'], '//*[contains(concat(" ", normalize-space(@class), " "),"contact-info")]/p/a[contains(concat(" ", normalize-space(@href), " "),"mailto:")]');
+      $cPTel = $this->evaluate($cPPage['content'], '//*[contains(concat(" ", normalize-space(@class), " "),"contact-info")]/p/a[contains(concat(" ", normalize-space(@href), " "),"tel:")]');
+      if($cPName->length <= 0){
+        $jobs[$k]['contact_person'] = "not found";
+      }else{
+        $jobs[$k]['contact_person'] = $cPName->item(0)->textContent;
+      }
+      if($cPEmail->length <= 0){
+        $jobs[$k]['contact_email'] = "not found";
+      }else{
+        $jobs[$k]['contact_email'] = $cPEmail->item(0)->textContent;
+      }
+
+      if($cPTel->length <= 0){
+        $jobs[$k]['contact_tel'] = "not found";
+      }else{
+        $jobs[$k]['contact_tel'] = $cPTel->item(0)->textContent;
+      }
+    }
+    $return['jobs'] = $jobs;
+    return $return;
+  }
+
+  private function jobPageFilters($content){
+    $return = ['department_filter' => 0, 'location_filter' => 0];
+    $xpath = $this->evaluate($content['content'], '//div[contains(concat(" ", normalize-space(@class), " "),"jobs-filter-inner")]/div[contains(concat(" ", normalize-space(@class), " "),"dropdown")]');
+    if($xpath->length == 0)
+      return $return;
+
+    foreach ($xpath as $filter) {
+      if(in_array($filter->getAttribute('data-name'), config('teamtailor.keywords.departmentFilters')))
+        $return['department_filter'] = 1;
+
+      if(in_array($filter->getAttribute('data-name'), config('teamtailor.keywords.locationFilters')))
+        $return['location_filter'] = 1;
+    }
+    return $return;
+  }
+
+  private function jobDetails($content, $base){
+    $return = ['job_count' => 0];
+    $xpath = $this->evaluate($content['content'], '//*[contains(concat(" ", normalize-space(@id), " "),"section-jobs")]/descendant::div[contains(concat(" ", normalize-space(@class), " "),"job-listing-container")]/ul');
+    if($xpath->length == 0)
+      return $return;
+      foreach ($xpath as $jobs) {
+        preg_match(config('teamtailor.patterns.jobCount'), $xpath->item(0)->getAttribute('class'), $jobCountMatch);
+        if(isset($jobCountMatch['jobs']))
+          $return['job_count'] = $jobCountMatch['jobs'];
+        $jobs_links = $this->evaluate($content['content'], '//*[contains(concat(" ", normalize-space(@id), " "),"section-jobs")]/descendant::div[contains(concat(" ", normalize-space(@class), " "),"job-listing-container")]/ul/li/a/@href');
+        $jobs_title = $this->evaluate($content['content'], '//*[contains(concat(" ", normalize-space(@id), " "),"section-jobs")]/descendant::div[contains(concat(" ", normalize-space(@class), " "),"job-listing-container")]/ul/li/descendant::*[contains(concat(" ", normalize-space(@class), " "),"title")]/text()');
+        foreach ($jobs_links as $link) {
+          $return['jobs']['link'][] = $base.$link->textContent;
+          $return['jobs']['link_hash'][] = md5($base.$link->textContent);
+        }
+
+        foreach ($jobs_title as $title) {
+          $return['jobs']['title'][] = $title->textContent;
+        }
+
+        $return['jobs'] = array_map(function($x, $y, $z) use($return){
+          return ['link_hash' => $z, 'link' => $x, 'title' => $y];
+        }, $return['jobs']['link'], $return['jobs']['title'], $return['jobs']['link_hash']);
+      }
+      return $return;
+  }
+
+  private function jobCrawler(){
+
+  }
+
+
+  private function generateHtml(\DOMElement $element){
+      $innerHTML = "";
+      foreach ($element->childNodes as $child){
+          $innerHTML .= $element->ownerDocument->saveHTML($child);
+      }
+      return $innerHTML;
+    }
+
+
+
+  private function teamtailorVerifier($domain, $content, $methodStr, $websiteType){
+    $returnIt = [];
+    if(is_string($content['content']) && $this->findTextInDocument($content['content'], 'p', 'teamtailor', config('teamtailor.keywords.isTt'))){
+      $url = $this->findTtJobPage($content['content'], 'a', ['logo', 'hidden-background']);
+      similar_text($url, $content['info']['url'], $pcent);
+      if($pcent >= 92.0){
+        $parentDomain = $this->getParentDomain($content['content']);
+        $jobPage = $this->verifyJobPage($content['content'], config('teamtailor.keywords.jobPage'));
+        $returnIt = [
+          'status' => true,
+          'parent_domain' => $parentDomain,
+          'method' => $methodStr,
+          'redirects' => $content['info']['redirect_count'],
+          'redirected_from' => $domain,
+          'redirected_url' => $content['info']['url'],
+          'job_url' => $url,
+          'secure' => ($content['info']['primary_port'] == 443?1:0),
+          'verified' => 1,
+          'job_page' => $url.$jobPage,
+          'type' => $websiteType,
+          'links_checked' => (count($this->globaLink) <= 0)?json_encode([$domain, $url, $url.$jobPage]):json_encode($this->globaLink),
+          'tested' => 1
+        ];
+        if(in_array($returnIt['parent_domain'], config('teamtailor.keywords.templateSite')) && $returnIt['job_url'] == $returnIt['job_page'])
+          return false;
+        else
+          return array_merge($returnIt, $this->getJobPageDetails($url, $jobPage));
+
+          // TODO: department_filter location_filter and job count, get all jobs too
+          //$this->getJobPageDetails($url.$jobPage);
+      }
+    }
+    return false;
   }
 
 
@@ -221,40 +381,6 @@ class BotController extends Controller
         $links['others'] = array_unique($links['others']);
 
       return $links;
-  }
-
-
-  private function teamtailorVerifier($domain, $content, $methodStr, $websiteType){
-    $returnIt = [];
-    if(is_string($content['content']) && $this->findTextInDocument($content['content'], 'p', 'teamtailor', config('teamtailor.keywords.isTt'))){
-      $url = $this->findTtJobPage($content['content'], 'a', ['logo', 'hidden-background']);
-      similar_text($url, $content['info']['url'], $pcent);
-      if($pcent >= 92.0){
-        $parentDomain = $this->getParentDomain($content['content']);
-        $jobPage = $this->verifyJobPage($content['content'], config('teamtailor.keywords.jobPage'));
-        $returnIt = [
-          'status' => true,
-          'parent_domain' => $parentDomain,
-          'method' => $methodStr,
-          'redirects' => $content['info']['redirect_count'],
-          'redirected_from' => $domain,
-          'redirected_url' => $content['info']['url'],
-          'job_url' => $url,
-          'secure' => ($content['info']['primary_port'] == 443?1:0),
-          'verified' => 1,
-          'job_page' => $url.$jobPage,
-          'type' => $websiteType,
-          'links_checked' => (count($this->globaLink) <= 0)?json_encode([$domain, $url, $url.$jobPage]):json_encode($this->globaLink),
-          'tested' => 1
-        ];
-        if(in_array($returnIt['parent_domain'], config('teamtailor.keywords.templateSite')) && $returnIt['job_url'] == $returnIt['job_page'])
-          return false;
-        else
-          return $returnIt;
-          // TODO: department_filter location_filter and job count, get all jobs too
-      }
-    }
-    return false;
   }
 
 

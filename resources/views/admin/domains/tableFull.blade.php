@@ -36,7 +36,7 @@
                        $jd = str_replace('https://', '', $jd);
                        $jd = substr_replace($jd, '', strpos($jd, '/'), strlen('/'));
                      @endphp
-                     <a href="{{$list->redirected_url}}" title="{{$list->redirected_url}}" target="_blank" class="btn">{{$jd}}</a>
+                     <a href="{{$list->redirected_url}}" title="{{$list->redirected_url}}" target="_blank">{{$jd}}</a>
                    @else
                      {{ '' }}
                    @endif
@@ -53,7 +53,7 @@
                        $jp = str_replace('http://', '', $jp);
                        $jp = str_replace('https://', '', $jp);
                      @endphp
-                     <a href="{{$list->job_page}}" title="{{$list->job_page}}" target="_blank" class="btn">{{$jp}}</a>
+                     <a href="{{$list->job_page}}" title="{{$list->job_page}}" target="_blank">{{$jp}}</a>
                    @else
                      {{ '' }}
                    @endif

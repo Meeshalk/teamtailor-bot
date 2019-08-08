@@ -15,12 +15,12 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('link_hash', 129)->unique();
             $table->string('title');
-            $table->text('title_full')->nullable();
-            $table->string('department')->nullable();
-            $table->string('location')->nullable();
+            $table->text('link');
             $table->string('contact_person')->nullable();
             $table->text('contact_email')->nullable();
+            $table->string('contact_tel', 15)->nullable();
             $table->integer('jobable_id');
             $table->string('jobable_type');
             $table->timestamps();

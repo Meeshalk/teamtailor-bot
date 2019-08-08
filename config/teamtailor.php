@@ -14,6 +14,9 @@ return [
       'swed' => ['jobb', 'arbete', 'arbeta', 'arbeta', 'fungera', 'jobba', 'använda', 'låta arbeta', 'jobba här', 'manövrera', 'verk', 'rekrytera', 'söker du jobb?', 'rekrytering', 'karriär', 'karriärsida', 'utnämning', 'karriärsajt', 'jobba hos oss', 'teamtailor'],
       'eng' => ['job', 'work', 'jobs', 'jobba', 'recruit', 'karriar', 'recruitment', 'career', 'careers', 'career page', 'position', 'positions', 'appointment', 'looking for job?', 'career site', 'work with us', 'teamtailor'],
       'jobPage' => ['jobb', 'jobs', 'job', 'jobba', 'career', 'karriar', 'arbete', 'arbeta', 'använda', 'verk', 'karriär', 'work', 'recruit', 'recruitment'],
+      'departmentFilters' => ['department', 'department_id'],
+      'locationFilters' => ['location', 'location_id'],
+      'filters' => ['department_id', 'location_id'],
       'isTt' => ['karriärsida från teamtailor', 'career site by teamtailor', 'Karriärsida från Teamtailor', 'Career Site By Teamtailor', 'Career site by Teamtailor'],
       'templateSite' => ['example.com', 'domain.com'],
       'excludeKnown' => ['godaddy', 'hostgator', 'youtube', 'facebook', 'twitter', 'google', 'instagram', 'linkedin', 'login', 'logout', 'signin', 'signup'],
@@ -27,9 +30,10 @@ return [
     'patterns' => [
       'relative_link' => '/^\/(?<relative_link>.+)$/',
       'full_url' => '/^(?<full_url>(https?:\/\/|www\.|https?:\/\/www\.|https?:\/\/).*)$/',
-      'domain' => '/^(?<protocol>https?:\/\/)?(?<domain>[a-z0-9.-]+)(?<resource>\/.*)?/',
+      'domain' => '/^(?<protocol>https?:\/\/)?(?<domain>[a-z0-9.-]{4,})(?<resource>\/.*)?/',
       'test' => '/^(?<protocol>https?:\/\/)?(?<domain>(?!\-)(?:[a-zA-Z\d\-]{0,62}[a-zA-Z\d]\.){1,126}(?!\d+)[a-zA-Z\d]{1,63})(?<hyphne>\/.*)?/',
-      'pattTemp' => '/.*(?<match>##).*/i'
+      'pattTemp' => '/.*(?<match>##).*/i',
+      'jobCount' => '/.*(?<class>count-(?<jobs>[0-9]{1,})).*/'
     ]
 
 ];

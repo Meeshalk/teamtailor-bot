@@ -33,8 +33,12 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 	Route::post('/domain/process/chunk/', 'DomainController@process')->name('domain.process.chunk');
 
 
+	Route::get('/jobs', 'JobController@index')->name('jobs');
+	//Route::get('/domain/{id}', 'DomainController@show')->name('domain.show');
+
 	//test
-	Route::get('/test/{domain}', 'DomainController@testFindJobsPage')->name('domain.test');
+	//Route::get('/test/{domain}', 'DomainController@testFindJobsPage')->name('domain.test');
+	//Route::get('/testing/jobdetails', 'DomainController@testFindJobDetails')->name('domain.test.jobtetails');
 
 
 	//instructions

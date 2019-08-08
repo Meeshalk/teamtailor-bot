@@ -177,7 +177,7 @@ class SeedController extends Controller
     public function show($id){
       try {
         $seed = Seed::findOrFail($id);
-        return view($this->baseView.'show', ['seed' => $seed, 'domain' => $seed->domains()->paginate(30)]);
+        return view($this->baseView.'show', ['seed' => $seed, 'domain' => $seed->domains()->paginate(10)]);
       } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
         abort(404, 'The seed domains does not exists. Resource not found.');
       }
