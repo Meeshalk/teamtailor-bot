@@ -84,8 +84,16 @@ class SeedController extends Controller
           foreach ($csv->getRecords() as $line) {
             if(isset($line['domains'])){
               $domains[] = trim($line['domains']);
+            }else if(isset($line['Domains'])){
+              $domains[] = trim($line['Domains']);
+            }else if(isset($line['DOMAINS'])){
+              $domains[] = trim($line['DOMAINS']);
             }else if(isset($line['domain'])){
               $domains[] = trim($line['domain']);
+            }else if(isset($line['Domain'])){
+              $domains[] = trim($line['Domain']);
+            }else if(isset($line['DOMAIN'])){
+              $domains[] = trim($line['DOMAIN']);
             }else{
               $domains[] = trim($line[0]);
             }
@@ -195,6 +203,10 @@ class SeedController extends Controller
         $seed = Seed::findOrFail($id);
         $name = $seed->name;
         $file = $seed->file;
+        $allDomains = $seed->domains()->get();
+        foreach ($allDomains as $domain) {
+          $domain->jobs()->delete();
+        }
         $seed->domains()->delete();
         $seed->delete();
         Storage::delete('public/'.$file);
