@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 	Route::get('/seed', 'SeedController@index')->name('seed');
 	Route::get('/seed/{id}', 'SeedController@show')->name('seed.show');
 	Route::post('/seed/store', 'SeedController@store')->name('seed.store');
+	Route::get('/seed/export/{id}', 'SeedController@export')->name('seed.export');
 	Route::get('/seed/process/{id}', 'DomainController@chunkProcessAjax')->name('seed.process');
 	Route::delete('/seed/delete/{id}', 'SeedController@destroy')->name('seed.delete');
 
@@ -37,7 +38,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 	//Route::get('/domain/{id}', 'DomainController@show')->name('domain.show');
 
 	//test
-	//Route::get('/test/{domain}', 'DomainController@testFindJobsPage')->name('domain.test');
+	Route::get('/test/{domain}', 'DomainController@testFindJobsPage')->name('domain.test');
 	//Route::get('/testing/jobdetails', 'DomainController@testFindJobDetails')->name('domain.test.jobtetails');
 
 
@@ -56,7 +57,9 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
 		//$man = User::find(Auth::user()->id);
 		//$man->assignRole('guest');
-
+		$ret = new stdClass();
+		$ret->length = 'hola';
+		echo $ret->length;
 	});
 
 });

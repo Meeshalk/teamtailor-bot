@@ -17,7 +17,7 @@
 
       <div class="col-lg-12 mb10i">
         <span class="pull-left">{{ "We have {$seed->domains_count} domains in this seed file."}}</span>
-        <span class="pull-right text-green processed-text" id="processedUpto">Processed <code>&nbsp;0&nbsp;</code> out of <code>&nbsp;{{$step*$chunk_size}}&nbsp;</code> domains.</span>
+        <span class="pull-right text-green processed-text" id="processedUpto">Processed <code>&nbsp;{{$current_step}}&nbsp;</code> out of <code>&nbsp;{{$step*$chunk_size}}&nbsp;</code> domains.</span>
       </div>
 
       <div class="col-lg-3">
@@ -37,7 +37,7 @@
       <div class="col-lg-3">
         <div class="form-group">
             <label for="current_step">Current Step</label>
-            <input type="text" class="form-control" name="current_step" id="current_step" readonly value="0">
+            <input type="text" class="form-control" name="current_step" id="current_step" readonly value="{{ $current_step ?? '0'}}">
         </div>
       </div>
 

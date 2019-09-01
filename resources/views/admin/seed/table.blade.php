@@ -26,6 +26,7 @@
                  <td>
                    <a href="{{ route('seed.process', $list->id) }}" class="btn btn-primary btn-xs mb5i">Process Domains</a>
                    <a href="{{ route('seed.show', $list->id) }}" class="btn btn-success btn-xs mb5i">Domain List</a>
+                   <a href="{{ route('seed.export', $list->id) }}" class="btn btn-info btn-xs mb5i">Export</a>
                    @include('layouts.deleteForm', ['form' => ['route' => 'seed.delete', 'id' => $list->id, 'msg' => "Do you really want to delete this seed file and all other related data, like domains and jobs information etc.?"]])
                  </td>
                </tr>

@@ -30,7 +30,11 @@ class DomainController extends Controller
     public function chunkProcessAjax($id){
       try {
         $seed = Seed::withCount('domains')->findOrFail($id);
-        return view($this->baseView.'process', ['seed' => $seed, 'step' => $seed->domains_count, 'chunk_size' => 1]);
+        $current_step = $seed->domains()->where('tested', 1)->count() - 3 ;
+        if($current_step < 1)
+          $current_step = 0;
+
+        return view($this->baseView.'process', ['seed' => $seed, 'step' => $seed->domains_count, 'chunk_size' => 1, 'current_step' => $current_step]);
       } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
 
       }
@@ -50,6 +54,8 @@ class DomainController extends Controller
           //process here
           $res = null;
           foreach ($seed->domains as $domain) {
+            if($domain->tested)
+              continue;
             $tTStatus = $this->findJobsPage($domain->domain);
             //$res = var_dump($tTStatus)
             if($tTStatus === false)
@@ -81,7 +87,7 @@ class DomainController extends Controller
             $res[] = $domRow;
           }
           $newStep = $cStep+1;
-          echo json_encode(['res' => $tTStatus, 'url' => route('domain.process.chunk'), 'seedId' => $in['seed_id'], 'type' => 'POST', 'steps' => $in['steps'], 'currentStep' => $newStep, 'chunkSize' => $cSize, 'keepGoing' => 1]);
+          echo json_encode(['url' => route('domain.process.chunk'), 'seedId' => $in['seed_id'], 'type' => 'POST', 'steps' => $in['steps'], 'currentStep' => $newStep, 'chunkSize' => $cSize, 'keepGoing' => 1]);
         }else{
           echo json_encode(['seedId' => $in['seed_id'], 'steps' => $in['steps'], 'chunkSize' => $in['chunk_size'], 'keepGoing' => 0, 'status' => 1]);
         }
@@ -95,6 +101,7 @@ class DomainController extends Controller
     public function findJobsPage($domain){
       set_time_limit(3600);
       $time = microtime(true);
+
       $bot = new BC;
       //fimding subdomain association with teamtailor.com eg. domain.teamtailor.com
       $bySubDomain = $bot->findTtAssociation($domain, 'subdomain');
@@ -103,7 +110,6 @@ class DomainController extends Controller
          $bySubDomain['completed_in'] = (microtime(true) - $time);
          return $bySubDomain;
       }
-
       $byDomain = $bot->findTtAssociation($domain, 'domain', 'curl', false);
         unset($byDomain['status']);
         $byDomain['completed_in'] = (microtime(true) - $time);
@@ -126,6 +132,10 @@ class DomainController extends Controller
       set_time_limit(3600);
       $time = microtime(true);
       $bot = new BC;
+
+      $cnt = $bot->getSiteContents($domain);
+      echo "<pre>",print_r($cnt),"</pre>";
+      exit;
       $bySubDomain = $bot->findTtAssociation($domain, 'subdomain');
       if($bySubDomain !== false && $bySubDomain['status'] === true){
         $bySubDomain['completed_in'] = (microtime(true) - $time);

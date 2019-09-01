@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use League\Csv\Reader as CsvReader;
+use League\Csv\Writer as CsvWriter;
+use League\Csv\CannotInsertRecord;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Session;
@@ -37,6 +39,7 @@ class SeedController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $ajax){
+      set_time_limit(3600);
       $in = $ajax->except('_token');
       $domains = $record = [];
       $csv = $fileName = null;
@@ -192,6 +195,25 @@ class SeedController extends Controller
     }
 
 
+    public function export($id){
+      try {
+        $seed = Seed::findOrFail($id);
+        try {
+          $writer = CsvWriter::createFromPath("storage/temp.csv", 'w+');
+          $writer->insertOne(['domains with teamtailor association', '# of jobs found']);
+          foreach ($seed->domains()->where('verified', '=', 1)->select('domain', 'job_count')->get() as $w) {
+            $writer->insertOne([$w->domain, $w->job_count]);
+          }
+          return response()->download('storage/temp.csv', "verified_".$seed->name.".csv")->deleteFileAfterSend();
+        } catch (CannotInsertRecord $e) {
+
+        }
+      } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+        abort(404, 'The seed file does not exists. Resource not found.');
+      }
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -199,6 +221,7 @@ class SeedController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
+      set_time_limit(3600);
       try {
         $seed = Seed::findOrFail($id);
         $name = $seed->name;

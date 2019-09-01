@@ -31,7 +31,7 @@ class BotController extends Controller
 
     $content = $this->getStatusAndContent($domain, $type);
     if(is_bool($content) && $content === false)
-      return false;
+      return ['status' => false, 'tested' => 1, 'verified' => 0, 'links_checked' => json_encode($this->globaLink)];
 
     //setting charset
     $this->setCharset($content['info']['content_type']);
@@ -44,16 +44,16 @@ class BotController extends Controller
     $methodStr = $websiteType = '';
     $methodStr = 'No direct association with teamtailor';
     $websiteType = 'orignal company';
-    $stepTwo = $this->linkCrawlerJobs($content, $methodStr, $websiteType, true);
+    $stepTwo = $this->linkCrawlerJobs($content, $methodStr, $websiteType, false);
     if($stepTwo['status'] != false)
       return $stepTwo;
 
     $content = '';
-    if($stepTwo['status'] == false && isset($stepTwo['megaReturn']) && count($stepTwo['megaReturn']) > 0){
+    if($stepTwo['status'] == false && isset($stepTwo['megaReturn']) && count($stepTwo['megaReturn']) > 0 && $level2){
       $methodStr = 'No direct association with teamtailor upto 2 level deep';
       $websiteType = 'orignal company';
       foreach ($stepTwo['megaReturn'] as $pageLevel2 => $content) {
-        $stepThree = $this->linkCrawlerJobs($content, $methodStr, $websiteType, $level2);
+        $stepThree = $this->linkCrawlerJobs($content, $methodStr, $websiteType, false);
         if($stepThree['status'] != false)
           return $stepThree;
       }
@@ -235,7 +235,7 @@ class BotController extends Controller
 
   private function linkCrawlerJobs($content, $methodStr, $websiteType, $others){
     $links = $this->getAllUrls($content['content']);
-    //echo "<pre>",print_r($links),"</pre>";
+    // echo "<pre>",print_r($links),"</pre>";
     $baseUrl = $content['info']['url'];
     $megaReturn = null;
     if(isset($links['jobs'])){
@@ -481,7 +481,14 @@ class BotController extends Controller
     }
     libxml_use_internal_errors($internalErrors);
     $xpath = new \DOMXPath($DOM);
-    return $xpath->evaluate($expression);
+    try {
+      $ret = $xpath->evaluate($expression);
+    } catch (\Exception $e) {
+      $ret = new \stdClass();
+      $ret->length = 0;
+    }
+
+    return $ret;
   }
 
 
