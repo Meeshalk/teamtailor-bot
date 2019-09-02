@@ -197,16 +197,27 @@ class SeedController extends Controller
 
     public function export($id){
       try {
-        $seed = Seed::findOrFail($id);
+        $seed = Seed::with(['domains' => function ($query) {
+            $query->where('verified', '=', 1);
+        } , 'domains.jobs'])->where('id', '=', $id)->first();
         try {
           $writer = CsvWriter::createFromPath("storage/temp.csv", 'w+');
-          $writer->insertOne(['domains with teamtailor association', '# of jobs found']);
-          foreach ($seed->domains()->where('verified', '=', 1)->select('domain', 'job_count')->get() as $w) {
-            $writer->insertOne([$w->domain, $w->job_count]);
-          }
+          $writer->setOutputBOM(CsvReader::BOM_UTF8);
+          $writer->insertOne(['domains with teamtailor association', 'Title', 'Link', 'Contact Person', 'Email', 'Telephone']);
+          //$domain = $seed->domains()->where('verified', '=', 1)->select('domain', 'job_count');
+          //jobs()->select('title', 'link', 'contact_person', 'contact_email', 'contact_tel')->get()
+          // foreach ($seed as $s) {
+            foreach ($seed->domains as $w) {
+              foreach ($w->jobs as $wb) {
+                //echo "<pre>",print_r([$w->domain, $wb->title, $wb->link, $wb->contact_person, $wb->contact_email, $wb->contact_tel]),"</pre>";
+                $writer->insertOne([$w->domain, $wb->title, $wb->link, $wb->contact_person, $wb->contact_email, $wb->contact_tel]);
+              }
+            }
+          // }
+
           return response()->download('storage/temp.csv', "verified_".$seed->name.".csv")->deleteFileAfterSend();
         } catch (CannotInsertRecord $e) {
-
+          //echo $e->getMessage();
         }
       } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
         abort(404, 'The seed file does not exists. Resource not found.');
