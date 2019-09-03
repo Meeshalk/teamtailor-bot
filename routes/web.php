@@ -33,9 +33,14 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 	// Route::delete('/domain/delete/{id}', 'DomainController@destroy')->name('domain.delete');
 	Route::post('/domain/process/chunk/', 'DomainController@process')->name('domain.process.chunk');
 
-
+  //job routes
 	Route::get('/jobs', 'JobController@index')->name('jobs');
 	//Route::get('/domain/{id}', 'DomainController@show')->name('domain.show');
+
+
+	//profile routes
+	Route::get('/profile','HomeController@profile')->name('profile');
+	Route::post('/profile/changePassword','HomeController@changePassword')->name('profile.changePassword');
 
 	//test
 	Route::get('/test/{domain}', 'DomainController@testFindJobsPage')->name('domain.test');

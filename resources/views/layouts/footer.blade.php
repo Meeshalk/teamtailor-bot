@@ -1,7 +1,6 @@
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
-    <b>Version</b> 0.1.2 - stable
+    <b>Version</b> 2.1.3 - stable
   </div>
-  <strong>Copyright &copy; 2019 <a href="https://digiseva.co.in">Digiseva Pvt Ltd</a>.</strong> All rights
-  reserved.
+  <strong>Developed By <a href="http://techkumar.in" target="_blank">Digiseva Pvt Ltd | Techkumar.in</a></strong>
 </footer>
